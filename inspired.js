@@ -3,24 +3,24 @@
  * Copyright 2019 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const t=globalThis,e=t.ShadowRoot&&(void 0===t.ShadyCSS||t.ShadyCSS.nativeShadow)&&"adoptedStyleSheets"in Document.prototype&&"replace"in CSSStyleSheet.prototype,s=Symbol(),i=new WeakMap;let o=class{constructor(t,e,i){if(this._$cssResult$=!0,i!==s)throw Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");this.cssText=t,this.t=e}get styleSheet(){let t=this.o;const s=this.t;if(e&&void 0===t){const e=void 0!==s&&1===s.length;e&&(t=i.get(s)),void 0===t&&((this.o=t=new CSSStyleSheet).replaceSync(this.cssText),e&&i.set(s,t))}return t}toString(){return this.cssText}};const r=(t,...e)=>{const i=1===t.length?t[0]:e.reduce(((e,s,i)=>e+(t=>{if(!0===t._$cssResult$)return t.cssText;if("number"==typeof t)return t;throw Error("Value passed to 'css' function must be a 'css' function result: "+t+". Use 'unsafeCSS' to pass non-literal values, but take care to ensure page security.")})(s)+t[i+1]),t[0]);return new o(i,t,s)},a=e?t=>t:t=>t instanceof CSSStyleSheet?(t=>{let e="";for(const s of t.cssRules)e+=s.cssText;return(t=>new o("string"==typeof t?t:t+"",void 0,s))(e)})(t):t
+const t=globalThis,e=t.ShadowRoot&&(void 0===t.ShadyCSS||t.ShadyCSS.nativeShadow)&&"adoptedStyleSheets"in Document.prototype&&"replace"in CSSStyleSheet.prototype,i=Symbol(),s=new WeakMap;let o=class{constructor(t,e,s){if(this._$cssResult$=!0,s!==i)throw Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");this.cssText=t,this.t=e}get styleSheet(){let t=this.o;const i=this.t;if(e&&void 0===t){const e=void 0!==i&&1===i.length;e&&(t=s.get(i)),void 0===t&&((this.o=t=new CSSStyleSheet).replaceSync(this.cssText),e&&s.set(i,t))}return t}toString(){return this.cssText}};const r=(t,...e)=>{const s=1===t.length?t[0]:e.reduce(((e,i,s)=>e+(t=>{if(!0===t._$cssResult$)return t.cssText;if("number"==typeof t)return t;throw Error("Value passed to 'css' function must be a 'css' function result: "+t+". Use 'unsafeCSS' to pass non-literal values, but take care to ensure page security.")})(i)+t[s+1]),t[0]);return new o(s,t,i)},a=e?t=>t:t=>t instanceof CSSStyleSheet?(t=>{let e="";for(const i of t.cssRules)e+=i.cssText;return(t=>new o("string"==typeof t?t:t+"",void 0,i))(e)})(t):t
 /**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */,{is:n,defineProperty:l,getOwnPropertyDescriptor:h,getOwnPropertyNames:d,getOwnPropertySymbols:c,getPrototypeOf:u}=Object,g=globalThis,p=g.trustedTypes,m=p?p.emptyScript:"",f=g.reactiveElementPolyfillSupport,v=(t,e)=>t,w={toAttribute(t,e){switch(e){case Boolean:t=t?m:null;break;case Object:case Array:t=null==t?t:JSON.stringify(t)}return t},fromAttribute(t,e){let s=t;switch(e){case Boolean:s=null!==t;break;case Number:s=null===t?null:Number(t);break;case Object:case Array:try{s=JSON.parse(t)}catch(t){s=null}}return s}},b=(t,e)=>!n(t,e),y={attribute:!0,type:String,converter:w,reflect:!1,hasChanged:b};Symbol.metadata??=Symbol("metadata"),g.litPropertyMetadata??=new WeakMap;class x extends HTMLElement{static addInitializer(t){this._$Ei(),(this.l??=[]).push(t)}static get observedAttributes(){return this.finalize(),this._$Eh&&[...this._$Eh.keys()]}static createProperty(t,e=y){if(e.state&&(e.attribute=!1),this._$Ei(),this.elementProperties.set(t,e),!e.noAccessor){const s=Symbol(),i=this.getPropertyDescriptor(t,s,e);void 0!==i&&l(this.prototype,t,i)}}static getPropertyDescriptor(t,e,s){const{get:i,set:o}=h(this.prototype,t)??{get(){return this[e]},set(t){this[e]=t}};return{get(){return i?.call(this)},set(e){const r=i?.call(this);o.call(this,e),this.requestUpdate(t,r,s)},configurable:!0,enumerable:!0}}static getPropertyOptions(t){return this.elementProperties.get(t)??y}static _$Ei(){if(this.hasOwnProperty(v("elementProperties")))return;const t=u(this);t.finalize(),void 0!==t.l&&(this.l=[...t.l]),this.elementProperties=new Map(t.elementProperties)}static finalize(){if(this.hasOwnProperty(v("finalized")))return;if(this.finalized=!0,this._$Ei(),this.hasOwnProperty(v("properties"))){const t=this.properties,e=[...d(t),...c(t)];for(const s of e)this.createProperty(s,t[s])}const t=this[Symbol.metadata];if(null!==t){const e=litPropertyMetadata.get(t);if(void 0!==e)for(const[t,s]of e)this.elementProperties.set(t,s)}this._$Eh=new Map;for(const[t,e]of this.elementProperties){const s=this._$Eu(t,e);void 0!==s&&this._$Eh.set(s,t)}this.elementStyles=this.finalizeStyles(this.styles)}static finalizeStyles(t){const e=[];if(Array.isArray(t)){const s=new Set(t.flat(1/0).reverse());for(const t of s)e.unshift(a(t))}else void 0!==t&&e.push(a(t));return e}static _$Eu(t,e){const s=e.attribute;return!1===s?void 0:"string"==typeof s?s:"string"==typeof t?t.toLowerCase():void 0}constructor(){super(),this._$Ep=void 0,this.isUpdatePending=!1,this.hasUpdated=!1,this._$Em=null,this._$Ev()}_$Ev(){this._$ES=new Promise((t=>this.enableUpdating=t)),this._$AL=new Map,this._$E_(),this.requestUpdate(),this.constructor.l?.forEach((t=>t(this)))}addController(t){(this._$EO??=new Set).add(t),void 0!==this.renderRoot&&this.isConnected&&t.hostConnected?.()}removeController(t){this._$EO?.delete(t)}_$E_(){const t=new Map,e=this.constructor.elementProperties;for(const s of e.keys())this.hasOwnProperty(s)&&(t.set(s,this[s]),delete this[s]);t.size>0&&(this._$Ep=t)}createRenderRoot(){const s=this.shadowRoot??this.attachShadow(this.constructor.shadowRootOptions);return((s,i)=>{if(e)s.adoptedStyleSheets=i.map((t=>t instanceof CSSStyleSheet?t:t.styleSheet));else for(const e of i){const i=document.createElement("style"),o=t.litNonce;void 0!==o&&i.setAttribute("nonce",o),i.textContent=e.cssText,s.appendChild(i)}})(s,this.constructor.elementStyles),s}connectedCallback(){this.renderRoot??=this.createRenderRoot(),this.enableUpdating(!0),this._$EO?.forEach((t=>t.hostConnected?.()))}enableUpdating(t){}disconnectedCallback(){this._$EO?.forEach((t=>t.hostDisconnected?.()))}attributeChangedCallback(t,e,s){this._$AK(t,s)}_$EC(t,e){const s=this.constructor.elementProperties.get(t),i=this.constructor._$Eu(t,s);if(void 0!==i&&!0===s.reflect){const o=(void 0!==s.converter?.toAttribute?s.converter:w).toAttribute(e,s.type);this._$Em=t,null==o?this.removeAttribute(i):this.setAttribute(i,o),this._$Em=null}}_$AK(t,e){const s=this.constructor,i=s._$Eh.get(t);if(void 0!==i&&this._$Em!==i){const t=s.getPropertyOptions(i),o="function"==typeof t.converter?{fromAttribute:t.converter}:void 0!==t.converter?.fromAttribute?t.converter:w;this._$Em=i,this[i]=o.fromAttribute(e,t.type),this._$Em=null}}requestUpdate(t,e,s){if(void 0!==t){if(s??=this.constructor.getPropertyOptions(t),!(s.hasChanged??b)(this[t],e))return;this.P(t,e,s)}!1===this.isUpdatePending&&(this._$ES=this._$ET())}P(t,e,s){this._$AL.has(t)||this._$AL.set(t,e),!0===s.reflect&&this._$Em!==t&&(this._$Ej??=new Set).add(t)}async _$ET(){this.isUpdatePending=!0;try{await this._$ES}catch(t){Promise.reject(t)}const t=this.scheduleUpdate();return null!=t&&await t,!this.isUpdatePending}scheduleUpdate(){return this.performUpdate()}performUpdate(){if(!this.isUpdatePending)return;if(!this.hasUpdated){if(this.renderRoot??=this.createRenderRoot(),this._$Ep){for(const[t,e]of this._$Ep)this[t]=e;this._$Ep=void 0}const t=this.constructor.elementProperties;if(t.size>0)for(const[e,s]of t)!0!==s.wrapped||this._$AL.has(e)||void 0===this[e]||this.P(e,this[e],s)}let t=!1;const e=this._$AL;try{t=this.shouldUpdate(e),t?(this.willUpdate(e),this._$EO?.forEach((t=>t.hostUpdate?.())),this.update(e)):this._$EU()}catch(e){throw t=!1,this._$EU(),e}t&&this._$AE(e)}willUpdate(t){}_$AE(t){this._$EO?.forEach((t=>t.hostUpdated?.())),this.hasUpdated||(this.hasUpdated=!0,this.firstUpdated(t)),this.updated(t)}_$EU(){this._$AL=new Map,this.isUpdatePending=!1}get updateComplete(){return this.getUpdateComplete()}getUpdateComplete(){return this._$ES}shouldUpdate(t){return!0}update(t){this._$Ej&&=this._$Ej.forEach((t=>this._$EC(t,this[t]))),this._$EU()}updated(t){}firstUpdated(t){}}x.elementStyles=[],x.shadowRootOptions={mode:"open"},x[v("elementProperties")]=new Map,x[v("finalized")]=new Map,f?.({ReactiveElement:x}),(g.reactiveElementVersions??=[]).push("2.0.4");
-/**
- * @license
- * Copyright 2017 Google LLC
- * SPDX-License-Identifier: BSD-3-Clause
- */
-const A=globalThis,M=A.trustedTypes,E=M?M.createPolicy("lit-html",{createHTML:t=>t}):void 0,k="$lit$",P=`lit$${Math.random().toFixed(9).slice(2)}$`,I="?"+P,S=`<${I}>`,B=document,C=()=>B.createComment(""),T=t=>null===t||"object"!=typeof t&&"function"!=typeof t,R=Array.isArray,Q="[ \t\n\f\r]",U=/<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g,H=/-->/g,O=/>/g,N=RegExp(`>|${Q}(?:([^\\s"'>=/]+)(${Q}*=${Q}*(?:[^ \t\n\f\r"'\`<>=]|("|')|))|$)`,"g"),J=/'/g,L=/"/g,Y=/^(?:script|style|textarea|title)$/i,D=(t=>(e,...s)=>({_$litType$:t,strings:e,values:s}))(1),X=Symbol.for("lit-noChange"),j=Symbol.for("lit-nothing"),q=new WeakMap,F=B.createTreeWalker(B,129);function V(t,e){if(!Array.isArray(t)||!t.hasOwnProperty("raw"))throw Error("invalid template strings array");return void 0!==E?E.createHTML(e):e}const K=(t,e)=>{const s=t.length-1,i=[];let o,r=2===e?"<svg>":"",a=U;for(let e=0;e<s;e++){const s=t[e];let n,l,h=-1,d=0;for(;d<s.length&&(a.lastIndex=d,l=a.exec(s),null!==l);)d=a.lastIndex,a===U?"!--"===l[1]?a=H:void 0!==l[1]?a=O:void 0!==l[2]?(Y.test(l[2])&&(o=RegExp("</"+l[2],"g")),a=N):void 0!==l[3]&&(a=N):a===N?">"===l[0]?(a=o??U,h=-1):void 0===l[1]?h=-2:(h=a.lastIndex-l[2].length,n=l[1],a=void 0===l[3]?N:'"'===l[3]?L:J):a===L||a===J?a=N:a===H||a===O?a=U:(a=N,o=void 0);const c=a===N&&t[e+1].startsWith("/>")?" ":"";r+=a===U?s+S:h>=0?(i.push(n),s.slice(0,h)+k+s.slice(h)+P+c):s+P+(-2===h?e:c)}return[V(t,r+(t[s]||"<?>")+(2===e?"</svg>":"")),i]};class Z{constructor({strings:t,_$litType$:e},s){let i;this.parts=[];let o=0,r=0;const a=t.length-1,n=this.parts,[l,h]=K(t,e);if(this.el=Z.createElement(l,s),F.currentNode=this.el.content,2===e){const t=this.el.content.firstChild;t.replaceWith(...t.childNodes)}for(;null!==(i=F.nextNode())&&n.length<a;){if(1===i.nodeType){if(i.hasAttributes())for(const t of i.getAttributeNames())if(t.endsWith(k)){const e=h[r++],s=i.getAttribute(t).split(P),a=/([.?@])?(.*)/.exec(e);n.push({type:1,index:o,name:a[2],strings:s,ctor:"."===a[1]?_:"?"===a[1]?tt:"@"===a[1]?et:$}),i.removeAttribute(t)}else t.startsWith(P)&&(n.push({type:6,index:o}),i.removeAttribute(t));if(Y.test(i.tagName)){const t=i.textContent.split(P),e=t.length-1;if(e>0){i.textContent=M?M.emptyScript:"";for(let s=0;s<e;s++)i.append(t[s],C()),F.nextNode(),n.push({type:2,index:++o});i.append(t[e],C())}}}else if(8===i.nodeType)if(i.data===I)n.push({type:2,index:o});else{let t=-1;for(;-1!==(t=i.data.indexOf(P,t+1));)n.push({type:7,index:o}),t+=P.length-1}o++}}static createElement(t,e){const s=B.createElement("template");return s.innerHTML=t,s}}function z(t,e,s=t,i){if(e===X)return e;let o=void 0!==i?s._$Co?.[i]:s._$Cl;const r=T(e)?void 0:e._$litDirective$;return o?.constructor!==r&&(o?._$AO?.(!1),void 0===r?o=void 0:(o=new r(t),o._$AT(t,s,i)),void 0!==i?(s._$Co??=[])[i]=o:s._$Cl=o),void 0!==o&&(e=z(t,o._$AS(t,e.values),o,i)),e}class G{constructor(t,e){this._$AV=[],this._$AN=void 0,this._$AD=t,this._$AM=e}get parentNode(){return this._$AM.parentNode}get _$AU(){return this._$AM._$AU}u(t){const{el:{content:e},parts:s}=this._$AD,i=(t?.creationScope??B).importNode(e,!0);F.currentNode=i;let o=F.nextNode(),r=0,a=0,n=s[0];for(;void 0!==n;){if(r===n.index){let e;2===n.type?e=new W(o,o.nextSibling,this,t):1===n.type?e=new n.ctor(o,n.name,n.strings,this,t):6===n.type&&(e=new st(o,this,t)),this._$AV.push(e),n=s[++a]}r!==n?.index&&(o=F.nextNode(),r++)}return F.currentNode=B,i}p(t){let e=0;for(const s of this._$AV)void 0!==s&&(void 0!==s.strings?(s._$AI(t,s,e),e+=s.strings.length-2):s._$AI(t[e])),e++}}class W{get _$AU(){return this._$AM?._$AU??this._$Cv}constructor(t,e,s,i){this.type=2,this._$AH=j,this._$AN=void 0,this._$AA=t,this._$AB=e,this._$AM=s,this.options=i,this._$Cv=i?.isConnected??!0}get parentNode(){let t=this._$AA.parentNode;const e=this._$AM;return void 0!==e&&11===t?.nodeType&&(t=e.parentNode),t}get startNode(){return this._$AA}get endNode(){return this._$AB}_$AI(t,e=this){t=z(this,t,e),T(t)?t===j||null==t||""===t?(this._$AH!==j&&this._$AR(),this._$AH=j):t!==this._$AH&&t!==X&&this._(t):void 0!==t._$litType$?this.$(t):void 0!==t.nodeType?this.T(t):(t=>R(t)||"function"==typeof t?.[Symbol.iterator])(t)?this.k(t):this._(t)}S(t){return this._$AA.parentNode.insertBefore(t,this._$AB)}T(t){this._$AH!==t&&(this._$AR(),this._$AH=this.S(t))}_(t){this._$AH!==j&&T(this._$AH)?this._$AA.nextSibling.data=t:this.T(B.createTextNode(t)),this._$AH=t}$(t){const{values:e,_$litType$:s}=t,i="number"==typeof s?this._$AC(t):(void 0===s.el&&(s.el=Z.createElement(V(s.h,s.h[0]),this.options)),s);if(this._$AH?._$AD===i)this._$AH.p(e);else{const t=new G(i,this),s=t.u(this.options);t.p(e),this.T(s),this._$AH=t}}_$AC(t){let e=q.get(t.strings);return void 0===e&&q.set(t.strings,e=new Z(t)),e}k(t){R(this._$AH)||(this._$AH=[],this._$AR());const e=this._$AH;let s,i=0;for(const o of t)i===e.length?e.push(s=new W(this.S(C()),this.S(C()),this,this.options)):s=e[i],s._$AI(o),i++;i<e.length&&(this._$AR(s&&s._$AB.nextSibling,i),e.length=i)}_$AR(t=this._$AA.nextSibling,e){for(this._$AP?.(!1,!0,e);t&&t!==this._$AB;){const e=t.nextSibling;t.remove(),t=e}}setConnected(t){void 0===this._$AM&&(this._$Cv=t,this._$AP?.(t))}}class ${get tagName(){return this.element.tagName}get _$AU(){return this._$AM._$AU}constructor(t,e,s,i,o){this.type=1,this._$AH=j,this._$AN=void 0,this.element=t,this.name=e,this._$AM=i,this.options=o,s.length>2||""!==s[0]||""!==s[1]?(this._$AH=Array(s.length-1).fill(new String),this.strings=s):this._$AH=j}_$AI(t,e=this,s,i){const o=this.strings;let r=!1;if(void 0===o)t=z(this,t,e,0),r=!T(t)||t!==this._$AH&&t!==X,r&&(this._$AH=t);else{const i=t;let a,n;for(t=o[0],a=0;a<o.length-1;a++)n=z(this,i[s+a],e,a),n===X&&(n=this._$AH[a]),r||=!T(n)||n!==this._$AH[a],n===j?t=j:t!==j&&(t+=(n??"")+o[a+1]),this._$AH[a]=n}r&&!i&&this.j(t)}j(t){t===j?this.element.removeAttribute(this.name):this.element.setAttribute(this.name,t??"")}}class _ extends ${constructor(){super(...arguments),this.type=3}j(t){this.element[this.name]=t===j?void 0:t}}class tt extends ${constructor(){super(...arguments),this.type=4}j(t){this.element.toggleAttribute(this.name,!!t&&t!==j)}}class et extends ${constructor(t,e,s,i,o){super(t,e,s,i,o),this.type=5}_$AI(t,e=this){if((t=z(this,t,e,0)??j)===X)return;const s=this._$AH,i=t===j&&s!==j||t.capture!==s.capture||t.once!==s.once||t.passive!==s.passive,o=t!==j&&(s===j||i);i&&this.element.removeEventListener(this.name,this,s),o&&this.element.addEventListener(this.name,this,t),this._$AH=t}handleEvent(t){"function"==typeof this._$AH?this._$AH.call(this.options?.host??this.element,t):this._$AH.handleEvent(t)}}class st{constructor(t,e,s){this.element=t,this.type=6,this._$AN=void 0,this._$AM=e,this.options=s}get _$AU(){return this._$AM._$AU}_$AI(t){z(this,t)}}const it=A.litHtmlPolyfillSupport;it?.(Z,W),(A.litHtmlVersions??=[]).push("3.1.3");
+ */,{is:n,defineProperty:l,getOwnPropertyDescriptor:d,getOwnPropertyNames:h,getOwnPropertySymbols:c,getPrototypeOf:p}=Object,g=globalThis,u=g.trustedTypes,m=u?u.emptyScript:"",f=g.reactiveElementPolyfillSupport,v=(t,e)=>t,w={toAttribute(t,e){switch(e){case Boolean:t=t?m:null;break;case Object:case Array:t=null==t?t:JSON.stringify(t)}return t},fromAttribute(t,e){let i=t;switch(e){case Boolean:i=null!==t;break;case Number:i=null===t?null:Number(t);break;case Object:case Array:try{i=JSON.parse(t)}catch(t){i=null}}return i}},b=(t,e)=>!n(t,e),x={attribute:!0,type:String,converter:w,reflect:!1,hasChanged:b};Symbol.metadata??=Symbol("metadata"),g.litPropertyMetadata??=new WeakMap;class y extends HTMLElement{static addInitializer(t){this._$Ei(),(this.l??=[]).push(t)}static get observedAttributes(){return this.finalize(),this._$Eh&&[...this._$Eh.keys()]}static createProperty(t,e=x){if(e.state&&(e.attribute=!1),this._$Ei(),this.elementProperties.set(t,e),!e.noAccessor){const i=Symbol(),s=this.getPropertyDescriptor(t,i,e);void 0!==s&&l(this.prototype,t,s)}}static getPropertyDescriptor(t,e,i){const{get:s,set:o}=d(this.prototype,t)??{get(){return this[e]},set(t){this[e]=t}};return{get(){return s?.call(this)},set(e){const r=s?.call(this);o.call(this,e),this.requestUpdate(t,r,i)},configurable:!0,enumerable:!0}}static getPropertyOptions(t){return this.elementProperties.get(t)??x}static _$Ei(){if(this.hasOwnProperty(v("elementProperties")))return;const t=p(this);t.finalize(),void 0!==t.l&&(this.l=[...t.l]),this.elementProperties=new Map(t.elementProperties)}static finalize(){if(this.hasOwnProperty(v("finalized")))return;if(this.finalized=!0,this._$Ei(),this.hasOwnProperty(v("properties"))){const t=this.properties,e=[...h(t),...c(t)];for(const i of e)this.createProperty(i,t[i])}const t=this[Symbol.metadata];if(null!==t){const e=litPropertyMetadata.get(t);if(void 0!==e)for(const[t,i]of e)this.elementProperties.set(t,i)}this._$Eh=new Map;for(const[t,e]of this.elementProperties){const i=this._$Eu(t,e);void 0!==i&&this._$Eh.set(i,t)}this.elementStyles=this.finalizeStyles(this.styles)}static finalizeStyles(t){const e=[];if(Array.isArray(t)){const i=new Set(t.flat(1/0).reverse());for(const t of i)e.unshift(a(t))}else void 0!==t&&e.push(a(t));return e}static _$Eu(t,e){const i=e.attribute;return!1===i?void 0:"string"==typeof i?i:"string"==typeof t?t.toLowerCase():void 0}constructor(){super(),this._$Ep=void 0,this.isUpdatePending=!1,this.hasUpdated=!1,this._$Em=null,this._$Ev()}_$Ev(){this._$ES=new Promise((t=>this.enableUpdating=t)),this._$AL=new Map,this._$E_(),this.requestUpdate(),this.constructor.l?.forEach((t=>t(this)))}addController(t){(this._$EO??=new Set).add(t),void 0!==this.renderRoot&&this.isConnected&&t.hostConnected?.()}removeController(t){this._$EO?.delete(t)}_$E_(){const t=new Map,e=this.constructor.elementProperties;for(const i of e.keys())this.hasOwnProperty(i)&&(t.set(i,this[i]),delete this[i]);t.size>0&&(this._$Ep=t)}createRenderRoot(){const i=this.shadowRoot??this.attachShadow(this.constructor.shadowRootOptions);return((i,s)=>{if(e)i.adoptedStyleSheets=s.map((t=>t instanceof CSSStyleSheet?t:t.styleSheet));else for(const e of s){const s=document.createElement("style"),o=t.litNonce;void 0!==o&&s.setAttribute("nonce",o),s.textContent=e.cssText,i.appendChild(s)}})(i,this.constructor.elementStyles),i}connectedCallback(){this.renderRoot??=this.createRenderRoot(),this.enableUpdating(!0),this._$EO?.forEach((t=>t.hostConnected?.()))}enableUpdating(t){}disconnectedCallback(){this._$EO?.forEach((t=>t.hostDisconnected?.()))}attributeChangedCallback(t,e,i){this._$AK(t,i)}_$EC(t,e){const i=this.constructor.elementProperties.get(t),s=this.constructor._$Eu(t,i);if(void 0!==s&&!0===i.reflect){const o=(void 0!==i.converter?.toAttribute?i.converter:w).toAttribute(e,i.type);this._$Em=t,null==o?this.removeAttribute(s):this.setAttribute(s,o),this._$Em=null}}_$AK(t,e){const i=this.constructor,s=i._$Eh.get(t);if(void 0!==s&&this._$Em!==s){const t=i.getPropertyOptions(s),o="function"==typeof t.converter?{fromAttribute:t.converter}:void 0!==t.converter?.fromAttribute?t.converter:w;this._$Em=s,this[s]=o.fromAttribute(e,t.type),this._$Em=null}}requestUpdate(t,e,i){if(void 0!==t){if(i??=this.constructor.getPropertyOptions(t),!(i.hasChanged??b)(this[t],e))return;this.P(t,e,i)}!1===this.isUpdatePending&&(this._$ES=this._$ET())}P(t,e,i){this._$AL.has(t)||this._$AL.set(t,e),!0===i.reflect&&this._$Em!==t&&(this._$Ej??=new Set).add(t)}async _$ET(){this.isUpdatePending=!0;try{await this._$ES}catch(t){Promise.reject(t)}const t=this.scheduleUpdate();return null!=t&&await t,!this.isUpdatePending}scheduleUpdate(){return this.performUpdate()}performUpdate(){if(!this.isUpdatePending)return;if(!this.hasUpdated){if(this.renderRoot??=this.createRenderRoot(),this._$Ep){for(const[t,e]of this._$Ep)this[t]=e;this._$Ep=void 0}const t=this.constructor.elementProperties;if(t.size>0)for(const[e,i]of t)!0!==i.wrapped||this._$AL.has(e)||void 0===this[e]||this.P(e,this[e],i)}let t=!1;const e=this._$AL;try{t=this.shouldUpdate(e),t?(this.willUpdate(e),this._$EO?.forEach((t=>t.hostUpdate?.())),this.update(e)):this._$EU()}catch(e){throw t=!1,this._$EU(),e}t&&this._$AE(e)}willUpdate(t){}_$AE(t){this._$EO?.forEach((t=>t.hostUpdated?.())),this.hasUpdated||(this.hasUpdated=!0,this.firstUpdated(t)),this.updated(t)}_$EU(){this._$AL=new Map,this.isUpdatePending=!1}get updateComplete(){return this.getUpdateComplete()}getUpdateComplete(){return this._$ES}shouldUpdate(t){return!0}update(t){this._$Ej&&=this._$Ej.forEach((t=>this._$EC(t,this[t]))),this._$EU()}updated(t){}firstUpdated(t){}}y.elementStyles=[],y.shadowRootOptions={mode:"open"},y[v("elementProperties")]=new Map,y[v("finalized")]=new Map,f?.({ReactiveElement:y}),(g.reactiveElementVersions??=[]).push("2.0.4");
 /**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-class ot extends x{constructor(){super(...arguments),this.renderOptions={host:this},this._$Do=void 0}createRenderRoot(){const t=super.createRenderRoot();return this.renderOptions.renderBefore??=t.firstChild,t}update(t){const e=this.render();this.hasUpdated||(this.renderOptions.isConnected=this.isConnected),super.update(t),this._$Do=((t,e,s)=>{const i=s?.renderBefore??e;let o=i._$litPart$;if(void 0===o){const t=s?.renderBefore??null;i._$litPart$=o=new W(e.insertBefore(C(),t),t,void 0,s??{})}return o._$AI(t),o})(e,this.renderRoot,this.renderOptions)}connectedCallback(){super.connectedCallback(),this._$Do?.setConnected(!0)}disconnectedCallback(){super.disconnectedCallback(),this._$Do?.setConnected(!1)}render(){return X}}ot._$litElement$=!0,ot.finalized=!0,globalThis.litElementHydrateSupport?.({LitElement:ot});const rt=globalThis.litElementPolyfillSupport;rt?.({LitElement:ot}),(globalThis.litElementVersions??=[]).push("4.0.5");class at extends ot{static properties={chatbotId:{type:String,reflect:!0},config:{type:Object},loading:{type:Boolean},currentMessage:{type:String},conversation:{type:Array},quoteProgress:{type:Number},quoteData:{type:Object},selectedOptions:{type:Array},isInQuoteFlow:{type:Boolean},showSubmitButton:{type:Boolean},showFinalSubmitButton:{type:Boolean},isTyping:{type:Boolean},isOpen:{type:Boolean},themeColor:{type:String},position:{type:String}};static styles=r`
+const A=globalThis,M=A.trustedTypes,E=M?M.createPolicy("lit-html",{createHTML:t=>t}):void 0,k="$lit$",P=`lit$${Math.random().toFixed(9).slice(2)}$`,I="?"+P,S=`<${I}>`,B=document,T=()=>B.createComment(""),C=t=>null===t||"object"!=typeof t&&"function"!=typeof t,R=Array.isArray,Q="[ \t\n\f\r]",U=/<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g,H=/-->/g,O=/>/g,N=RegExp(`>|${Q}(?:([^\\s"'>=/]+)(${Q}*=${Q}*(?:[^ \t\n\f\r"'\`<>=]|("|')|))|$)`,"g"),J=/'/g,Y=/"/g,L=/^(?:script|style|textarea|title)$/i,D=(t=>(e,...i)=>({_$litType$:t,strings:e,values:i}))(1),F=Symbol.for("lit-noChange"),X=Symbol.for("lit-nothing"),q=new WeakMap,j=B.createTreeWalker(B,129);function z(t,e){if(!R(t)||!t.hasOwnProperty("raw"))throw Error("invalid template strings array");return void 0!==E?E.createHTML(e):e}const V=(t,e)=>{const i=t.length-1,s=[];let o,r=2===e?"<svg>":3===e?"<math>":"",a=U;for(let e=0;e<i;e++){const i=t[e];let n,l,d=-1,h=0;for(;h<i.length&&(a.lastIndex=h,l=a.exec(i),null!==l);)h=a.lastIndex,a===U?"!--"===l[1]?a=H:void 0!==l[1]?a=O:void 0!==l[2]?(L.test(l[2])&&(o=RegExp("</"+l[2],"g")),a=N):void 0!==l[3]&&(a=N):a===N?">"===l[0]?(a=o??U,d=-1):void 0===l[1]?d=-2:(d=a.lastIndex-l[2].length,n=l[1],a=void 0===l[3]?N:'"'===l[3]?Y:J):a===Y||a===J?a=N:a===H||a===O?a=U:(a=N,o=void 0);const c=a===N&&t[e+1].startsWith("/>")?" ":"";r+=a===U?i+S:d>=0?(s.push(n),i.slice(0,d)+k+i.slice(d)+P+c):i+P+(-2===d?e:c)}return[z(t,r+(t[i]||"<?>")+(2===e?"</svg>":3===e?"</math>":"")),s]};class K{constructor({strings:t,_$litType$:e},i){let s;this.parts=[];let o=0,r=0;const a=t.length-1,n=this.parts,[l,d]=V(t,e);if(this.el=K.createElement(l,i),j.currentNode=this.el.content,2===e||3===e){const t=this.el.content.firstChild;t.replaceWith(...t.childNodes)}for(;null!==(s=j.nextNode())&&n.length<a;){if(1===s.nodeType){if(s.hasAttributes())for(const t of s.getAttributeNames())if(t.endsWith(k)){const e=d[r++],i=s.getAttribute(t).split(P),a=/([.?@])?(.*)/.exec(e);n.push({type:1,index:o,name:a[2],strings:i,ctor:"."===a[1]?_:"?"===a[1]?tt:"@"===a[1]?et:$}),s.removeAttribute(t)}else t.startsWith(P)&&(n.push({type:6,index:o}),s.removeAttribute(t));if(L.test(s.tagName)){const t=s.textContent.split(P),e=t.length-1;if(e>0){s.textContent=M?M.emptyScript:"";for(let i=0;i<e;i++)s.append(t[i],T()),j.nextNode(),n.push({type:2,index:++o});s.append(t[e],T())}}}else if(8===s.nodeType)if(s.data===I)n.push({type:2,index:o});else{let t=-1;for(;-1!==(t=s.data.indexOf(P,t+1));)n.push({type:7,index:o}),t+=P.length-1}o++}}static createElement(t,e){const i=B.createElement("template");return i.innerHTML=t,i}}function Z(t,e,i=t,s){if(e===F)return e;let o=void 0!==s?i._$Co?.[s]:i._$Cl;const r=C(e)?void 0:e._$litDirective$;return o?.constructor!==r&&(o?._$AO?.(!1),void 0===r?o=void 0:(o=new r(t),o._$AT(t,i,s)),void 0!==s?(i._$Co??=[])[s]=o:i._$Cl=o),void 0!==o&&(e=Z(t,o._$AS(t,e.values),o,s)),e}class G{constructor(t,e){this._$AV=[],this._$AN=void 0,this._$AD=t,this._$AM=e}get parentNode(){return this._$AM.parentNode}get _$AU(){return this._$AM._$AU}u(t){const{el:{content:e},parts:i}=this._$AD,s=(t?.creationScope??B).importNode(e,!0);j.currentNode=s;let o=j.nextNode(),r=0,a=0,n=i[0];for(;void 0!==n;){if(r===n.index){let e;2===n.type?e=new W(o,o.nextSibling,this,t):1===n.type?e=new n.ctor(o,n.name,n.strings,this,t):6===n.type&&(e=new it(o,this,t)),this._$AV.push(e),n=i[++a]}r!==n?.index&&(o=j.nextNode(),r++)}return j.currentNode=B,s}p(t){let e=0;for(const i of this._$AV)void 0!==i&&(void 0!==i.strings?(i._$AI(t,i,e),e+=i.strings.length-2):i._$AI(t[e])),e++}}class W{get _$AU(){return this._$AM?._$AU??this._$Cv}constructor(t,e,i,s){this.type=2,this._$AH=X,this._$AN=void 0,this._$AA=t,this._$AB=e,this._$AM=i,this.options=s,this._$Cv=s?.isConnected??!0}get parentNode(){let t=this._$AA.parentNode;const e=this._$AM;return void 0!==e&&11===t?.nodeType&&(t=e.parentNode),t}get startNode(){return this._$AA}get endNode(){return this._$AB}_$AI(t,e=this){t=Z(this,t,e),C(t)?t===X||null==t||""===t?(this._$AH!==X&&this._$AR(),this._$AH=X):t!==this._$AH&&t!==F&&this._(t):void 0!==t._$litType$?this.$(t):void 0!==t.nodeType?this.T(t):(t=>R(t)||"function"==typeof t?.[Symbol.iterator])(t)?this.k(t):this._(t)}O(t){return this._$AA.parentNode.insertBefore(t,this._$AB)}T(t){this._$AH!==t&&(this._$AR(),this._$AH=this.O(t))}_(t){this._$AH!==X&&C(this._$AH)?this._$AA.nextSibling.data=t:this.T(B.createTextNode(t)),this._$AH=t}$(t){const{values:e,_$litType$:i}=t,s="number"==typeof i?this._$AC(t):(void 0===i.el&&(i.el=K.createElement(z(i.h,i.h[0]),this.options)),i);if(this._$AH?._$AD===s)this._$AH.p(e);else{const t=new G(s,this),i=t.u(this.options);t.p(e),this.T(i),this._$AH=t}}_$AC(t){let e=q.get(t.strings);return void 0===e&&q.set(t.strings,e=new K(t)),e}k(t){R(this._$AH)||(this._$AH=[],this._$AR());const e=this._$AH;let i,s=0;for(const o of t)s===e.length?e.push(i=new W(this.O(T()),this.O(T()),this,this.options)):i=e[s],i._$AI(o),s++;s<e.length&&(this._$AR(i&&i._$AB.nextSibling,s),e.length=s)}_$AR(t=this._$AA.nextSibling,e){for(this._$AP?.(!1,!0,e);t&&t!==this._$AB;){const e=t.nextSibling;t.remove(),t=e}}setConnected(t){void 0===this._$AM&&(this._$Cv=t,this._$AP?.(t))}}class ${get tagName(){return this.element.tagName}get _$AU(){return this._$AM._$AU}constructor(t,e,i,s,o){this.type=1,this._$AH=X,this._$AN=void 0,this.element=t,this.name=e,this._$AM=s,this.options=o,i.length>2||""!==i[0]||""!==i[1]?(this._$AH=Array(i.length-1).fill(new String),this.strings=i):this._$AH=X}_$AI(t,e=this,i,s){const o=this.strings;let r=!1;if(void 0===o)t=Z(this,t,e,0),r=!C(t)||t!==this._$AH&&t!==F,r&&(this._$AH=t);else{const s=t;let a,n;for(t=o[0],a=0;a<o.length-1;a++)n=Z(this,s[i+a],e,a),n===F&&(n=this._$AH[a]),r||=!C(n)||n!==this._$AH[a],n===X?t=X:t!==X&&(t+=(n??"")+o[a+1]),this._$AH[a]=n}r&&!s&&this.j(t)}j(t){t===X?this.element.removeAttribute(this.name):this.element.setAttribute(this.name,t??"")}}class _ extends ${constructor(){super(...arguments),this.type=3}j(t){this.element[this.name]=t===X?void 0:t}}class tt extends ${constructor(){super(...arguments),this.type=4}j(t){this.element.toggleAttribute(this.name,!!t&&t!==X)}}class et extends ${constructor(t,e,i,s,o){super(t,e,i,s,o),this.type=5}_$AI(t,e=this){if((t=Z(this,t,e,0)??X)===F)return;const i=this._$AH,s=t===X&&i!==X||t.capture!==i.capture||t.once!==i.once||t.passive!==i.passive,o=t!==X&&(i===X||s);s&&this.element.removeEventListener(this.name,this,i),o&&this.element.addEventListener(this.name,this,t),this._$AH=t}handleEvent(t){"function"==typeof this._$AH?this._$AH.call(this.options?.host??this.element,t):this._$AH.handleEvent(t)}}class it{constructor(t,e,i){this.element=t,this.type=6,this._$AN=void 0,this._$AM=e,this.options=i}get _$AU(){return this._$AM._$AU}_$AI(t){Z(this,t)}}const st=A.litHtmlPolyfillSupport;st?.(K,W),(A.litHtmlVersions??=[]).push("3.2.1");
+/**
+ * @license
+ * Copyright 2017 Google LLC
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+class ot extends y{constructor(){super(...arguments),this.renderOptions={host:this},this._$Do=void 0}createRenderRoot(){const t=super.createRenderRoot();return this.renderOptions.renderBefore??=t.firstChild,t}update(t){const e=this.render();this.hasUpdated||(this.renderOptions.isConnected=this.isConnected),super.update(t),this._$Do=((t,e,i)=>{const s=i?.renderBefore??e;let o=s._$litPart$;if(void 0===o){const t=i?.renderBefore??null;s._$litPart$=o=new W(e.insertBefore(T(),t),t,void 0,i??{})}return o._$AI(t),o})(e,this.renderRoot,this.renderOptions)}connectedCallback(){super.connectedCallback(),this._$Do?.setConnected(!0)}disconnectedCallback(){super.disconnectedCallback(),this._$Do?.setConnected(!1)}render(){return F}}ot._$litElement$=!0,ot.finalized=!0,globalThis.litElementHydrateSupport?.({LitElement:ot});const rt=globalThis.litElementPolyfillSupport;rt?.({LitElement:ot}),(globalThis.litElementVersions??=[]).push("4.1.1");class at extends ot{static properties={chatbotId:{type:String,reflect:!0},config:{type:Object},loading:{type:Boolean},currentMessage:{type:String},conversation:{type:Array},quoteProgress:{type:Number},quoteData:{type:Object},selectedOptions:{type:Array},isInQuoteFlow:{type:Boolean},showSubmitButton:{type:Boolean},showFinalSubmitButton:{type:Boolean},isTyping:{type:Boolean},isOpen:{type:Boolean},themeColor:{type:String},position:{type:String}};static styles=r`
     :host {
       display: block;
       position: fixed;
@@ -295,7 +295,7 @@ class ot extends x{constructor(){super(...arguments),this.renderOptions={host:th
       left: 20px;
       transform: translateY(-50%);
     }
-  `;constructor(){super(),this.chatbotId="",this.config=null,this.loading=!1,this.currentMessage="",this.conversation=[],this.quoteProgress=0,this.quoteData={},this.selectedOptions=[],this.isInQuoteFlow=!1,this.showSubmitButton=!1,this.showFinalSubmitButton=!1,this.isTyping=!1,this.isOpen=!1,this.themeColor="#0044cc",this.position="bottomright",this.showLogo=!1}toggleChat(){this.isOpen=!this.isOpen}firstUpdated(){this.scrollToBottom()}updated(t){t.has("chatbotId")&&this.fetchChatbotConfig(),this.scrollToBottom()}async fetchChatbotConfig(){if(this.chatbotId){this.loading=!0;try{const t=await fetch(`https://api-inspired-4e322fa633ca.herokuapp.com/chat-bot/config/${this.chatbotId}`);if(!t.ok)throw new Error(`HTTP error! status: ${t.status}`);this.config=await t.json(),this.themeColor=this.config.color||"#0044cc",this.position=this.config.position||"bottomright",this.style.setProperty("--theme-color",this.themeColor),this.style.setProperty("--theme-hover-color",this.adjustColorBrightness(this.themeColor,-20)),this.showLogo=this.config.showLogo||!1,this.addBotMessage(this.config.defaultMessages.find((t=>"welcome"===t.type)).message),console.log("Fetched Config:",this.config)}catch(t){console.error("Error fetching chatbot config:",t),this.config=null}finally{this.loading=!1}}}adjustColorBrightness(t,e){let s=!1;"#"==t[0]&&(t=t.slice(1),s=!0);const i=parseInt(t,16);let o=(i>>16)+e;o=o>255?255:o<0?0:o;let r=(i>>8&255)+e;r=r>255?255:r<0?0:r;let a=(255&i)+e;return a=a>255?255:a<0?0:a,(s?"#":"")+(o<<16|r<<8|a).toString(16).padStart(6,"0")}async addBotMessage(t,e=[],s=[]){this.isTyping=!0,this.requestUpdate(),await new Promise((t=>setTimeout(t,2e3)));const i=(new Date).toLocaleTimeString();this.conversation=[...this.conversation,{type:"bot",text:t,options:e,additionalContent:s,time:i}],this.isTyping=!1,this.requestUpdate(),this.scrollToBottom(),console.log("Added Bot Message:",t,e,s)}addUserMessage(t){const e=(new Date).toLocaleTimeString();this.conversation=[...this.conversation,{type:"user",text:t,time:e}],console.log("Added User Message:",t)}handleUserInput(t){"Enter"!==t.key&&"click"!==t.type||this.currentMessage.trim()&&(this.addUserMessage(this.currentMessage),this.isInQuoteFlow?this.saveQuoteData():this.handleBotResponse(this.currentMessage),this.currentMessage="")}async handleBotResponse(t){const e=this.config.defaultMessages.find((t=>"menu"===t.type));await this.addBotMessage(e.message,e.options)}async handleOptionClick(t){if("request_quote"===t.action||"show_services"===t.action)this.displayServices();else if("submit_quote"===t.action)await this.completeQuoteProcess();else if("send_whatsapp"===t.action){const t=`https://wa.me/${this.config.whatsappNumber||"+0000000000"}`;window.open(t,"_blank")}else if("show_menu"===t.action){const t=this.config.defaultMessages.find((t=>"menu"===t.type));t&&await this.addBotMessage(t.message,t.options)}else if(this.isInQuoteFlow=!1,t.response)for(let e of t.response)"text"===e.type?await this.addBotMessage(e.message):"list"===e.type?await this.addBotMessage(this.renderList(e.items)):"faq"===e.type&&await this.addBotMessage(this.renderFAQ(e.items));else console.error("No response found for this option:",t)}displayServices(){this.isInQuoteFlow=!0,this.quoteProgress=1;const t=this.config.defaultMessages.find((t=>"menu"===t.type)).options.find((t=>"request_quote"===t.action||"show_services"===t.action));if(t&&t.response&&t.response.length>1){const e=t.response[1].items;e&&e.length>0?(this.addBotMessage("",[],this.renderCheckboxOptions(e)),this.addBotMessage("Please select the Option you're interested in:")):this.addBotMessage("No options available at this time.")}}renderCheckboxOptions(t){return t.map((t=>D`
+  `;constructor(){super(),this.chatbotId="",this.config=null,this.loading=!1,this.currentMessage="",this.conversation=[],this.quoteProgress=0,this.quoteData={},this.selectedOptions=[],this.isInQuoteFlow=!1,this.showSubmitButton=!1,this.showFinalSubmitButton=!1,this.isTyping=!1,this.isOpen=!1,this.themeColor="#0044cc",this.position="bottomright",this.showLogo=!1}toggleChat(){this.isOpen=!this.isOpen}firstUpdated(){this.scrollToBottom()}updated(t){t.has("chatbotId")&&this.fetchChatbotConfig(),this.scrollToBottom()}async fetchChatbotConfig(){if(this.chatbotId){this.loading=!0;try{const t=await fetch(`https://api-inspired-4e322fa633ca.herokuapp.com/chat-bot/config/${this.chatbotId}`);if(!t.ok)throw new Error(`HTTP error! status: ${t.status}`);this.config=await t.json(),this.themeColor=this.config.color||"#0044cc",this.position=this.config.position||"bottomright",this.style.setProperty("--theme-color",this.themeColor),this.style.setProperty("--theme-hover-color",this.adjustColorBrightness(this.themeColor,-20)),this.showLogo=this.config.showLogo||!1,this.addBotMessage(this.config.defaultMessages.find((t=>"welcome"===t.type)).message),console.log("Fetched Config:",this.config)}catch(t){console.error("Error fetching chatbot config:",t),this.config=null}finally{this.loading=!1}}}adjustColorBrightness(t,e){let i=!1;"#"==t[0]&&(t=t.slice(1),i=!0);const s=parseInt(t,16);let o=(s>>16)+e;o=o>255?255:o<0?0:o;let r=(s>>8&255)+e;r=r>255?255:r<0?0:r;let a=(255&s)+e;return a=a>255?255:a<0?0:a,(i?"#":"")+(o<<16|r<<8|a).toString(16).padStart(6,"0")}async addBotMessage(t,e=[],i=[]){this.isTyping=!0,this.requestUpdate(),await new Promise((t=>setTimeout(t,2e3)));const s=(new Date).toLocaleTimeString();this.conversation=[...this.conversation,{type:"bot",text:t,options:e,additionalContent:i,time:s}],this.isTyping=!1,this.requestUpdate(),this.scrollToBottom(),console.log("Added Bot Message:",t,e,i)}addUserMessage(t){const e=(new Date).toLocaleTimeString();this.conversation=[...this.conversation,{type:"user",text:t,time:e}],console.log("Added User Message:",t)}handleUserInput(t){"Enter"!==t.key&&"click"!==t.type||this.currentMessage.trim()&&(this.addUserMessage(this.currentMessage),this.isInQuoteFlow?this.saveQuoteData():this.handleBotResponse(this.currentMessage),this.currentMessage="")}async handleBotResponse(t){const e=this.config.defaultMessages.find((t=>"menu"===t.type));await this.addBotMessage(e.message,e.options)}async handleOptionClick(t){if("request_quote"===t.action||"show_services"===t.action)this.displayServices();else if("submit_quote"===t.action)await this.completeQuoteProcess();else if("send_whatsapp"===t.action){const t=`https://wa.me/${this.config.whatsappNumber||"+0000000000"}`;window.open(t,"_blank")}else if("show_menu"===t.action){const t=this.config.defaultMessages.find((t=>"menu"===t.type));t&&await this.addBotMessage(t.message,t.options)}else if(this.isInQuoteFlow=!1,t.response)for(let e of t.response)"text"===e.type?await this.addBotMessage(e.message):"list"===e.type?await this.addBotMessage(this.renderList(e.items)):"faq"===e.type&&await this.addBotMessage(this.renderFAQ(e.items));else console.error("No response found for this option:",t)}displayServices(){this.isInQuoteFlow=!0,this.quoteProgress=1;const t=this.config.defaultMessages.find((t=>"menu"===t.type)).options.find((t=>"request_quote"===t.action||"show_services"===t.action));if(t&&t.response&&t.response.length>1){const e=t.response[1].items;e&&e.length>0?(this.addBotMessage("",[],this.renderCheckboxOptions(e)),this.addBotMessage("Please select the Option you're interested in:")):this.addBotMessage("No options available at this time.")}}renderCheckboxOptions(t){return t.map((t=>D`
         <div class="checkbox-option">
           <input
             type="checkbox"
@@ -304,7 +304,7 @@ class ot extends x{constructor(){super(...arguments),this.renderOptions={host:th
           />
           ${t}
         </div>
-      `))}handleCheckboxChange(t){const e=t.target.value;t.target.checked?this.selectedOptions=[...this.selectedOptions,e]:this.selectedOptions=this.selectedOptions.filter((t=>t!==e)),console.log("Selected Options:",this.selectedOptions),this.showSubmitButton=this.selectedOptions.length>0}async saveQuoteData(){const t=[{label:"nameClient",message:"Please enter your name:"},{label:"email",message:"Please enter your email address:",validate:this.validateEmail},{label:"phone",message:"Please enter your phone number:",validate:this.validatePhone},{label:"address",message:"Please enter your address:"}];if(1===this.quoteProgress&&this.selectedOptions.length>0)await this.addBotMessage("You have selected the following options: "+this.selectedOptions.join(", ")),await this.addBotMessage(t[0].message),this.quoteProgress++;else if(this.quoteProgress>=2&&this.quoteProgress<=t.length+1){const e=t[this.quoteProgress-2],s=e.validate;s&&!s(this.currentMessage)?await this.addBotMessage(`Invalid input. ${e.message}`):(this.quoteData[e.label]=this.currentMessage,this.quoteProgress<t.length+1?await this.addBotMessage(t[this.quoteProgress-1].message):this.quoteProgress===t.length+1&&(this.showFinalSubmitButton=!0),this.quoteProgress++)}}validateEmail(t){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(t)}validatePhone(t){return/^[0-9\- ]+$/.test(t)}async completeQuoteProcess(){const t=this.config.emails.join(",");this.quoteData.toEmail=t,this.quoteData.services=this.selectedOptions,console.log("Quote Data:",this.quoteData),await this.sendQuoteEmail(this.quoteData),await this.addBotMessage("Thank you! Your request has been submitted."),this.isInQuoteFlow=!1,this.showSubmitButton=!1,this.showFinalSubmitButton=!1,this.quoteProgress=0,this.quoteData={},this.selectedOptions=[],await new Promise((t=>setTimeout(t,2e3))),await this.addBotMessage("Is there anything else I can assist you with?",[],[]),await this.addBotMessage("",[{label:"Show Menu",action:"show_menu"}])}async sendQuoteEmail(t){this.isTyping=!0,this.requestUpdate();try{const e=await fetch("https://api-inspired-4e322fa633ca.herokuapp.com/chat-bot",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(t)}),s=await e.json();if("Email sent successfully"!==s.msg)throw new Error(s.msg);{const e={...t,emailFromChatBot:this.config.chatbotId},s=await fetch("https://api-inspired-4e322fa633ca.herokuapp.com/chat-bot/save-email",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(e)}),i=await s.json();if("Email guardado exitosamente"!==i.message)throw new Error(i.error||"Error al guardar los datos");this.isTyping=!1,this.requestUpdate()}}catch(t){this.isTyping=!1,this.addBotMessage("There was an error sending your request."),console.error("Error sending email or saving data:",t)}}renderList(t){return D`
+      `))}handleCheckboxChange(t){const e=t.target.value;t.target.checked?this.selectedOptions=[...this.selectedOptions,e]:this.selectedOptions=this.selectedOptions.filter((t=>t!==e)),console.log("Selected Options:",this.selectedOptions),this.showSubmitButton=this.selectedOptions.length>0}async saveQuoteData(){const t=[{label:"nameClient",message:"Please enter your name:"},{label:"email",message:"Please enter your email address:",validate:this.validateEmail},{label:"phone",message:"Please enter your phone number:",validate:this.validatePhone},{label:"address",message:"Please enter your address:"}];if(1===this.quoteProgress&&this.selectedOptions.length>0)await this.addBotMessage("You have selected the following options: "+this.selectedOptions.join(", ")),await this.addBotMessage(t[0].message),this.quoteProgress++;else if(this.quoteProgress>=2&&this.quoteProgress<=t.length+1){const e=t[this.quoteProgress-2],i=e.validate;i&&!i(this.currentMessage)?await this.addBotMessage(`Invalid input. ${e.message}`):(this.quoteData[e.label]=this.currentMessage,this.quoteProgress<t.length+1?await this.addBotMessage(t[this.quoteProgress-1].message):this.quoteProgress===t.length+1&&(this.showFinalSubmitButton=!0),this.quoteProgress++)}}validateEmail(t){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(t)}validatePhone(t){return/^[0-9\- ]+$/.test(t)}async completeQuoteProcess(){const t=this.config.emails.join(",");this.quoteData.toEmail=t,this.quoteData.services=this.selectedOptions,console.log("Quote Data:",this.quoteData),await this.sendQuoteEmail(this.quoteData),await this.addBotMessage("Thank you! Your request has been submitted."),this.isInQuoteFlow=!1,this.showSubmitButton=!1,this.showFinalSubmitButton=!1,this.quoteProgress=0,this.quoteData={},this.selectedOptions=[],await new Promise((t=>setTimeout(t,2e3))),await this.addBotMessage("Is there anything else I can assist you with?",[],[]),await this.addBotMessage("",[{label:"Show Menu",action:"show_menu"}])}async sendQuoteEmail(t){this.isTyping=!0,this.requestUpdate();try{const e=await fetch("https://api-inspired-4e322fa633ca.herokuapp.com/chat-bot",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(t)}),i=await e.json();if("Email sent successfully"!==i.msg)throw new Error(i.msg);{const e={...t,emailFromChatBot:this.config.chatbotId},i=await fetch("https://api-inspired-4e322fa633ca.herokuapp.com/chat-bot/save-email",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(e)}),s=await i.json();if("Email guardado exitosamente"!==s.message)throw new Error(s.error||"Error al guardar los datos");this.isTyping=!1,this.requestUpdate()}}catch(t){this.isTyping=!1,this.addBotMessage("There was an error sending your request."),console.error("Error sending email or saving data:",t)}}renderList(t){return D`
       <ul>
         ${t.map((t=>D`<li class="list-item">${t}</li>`))}
       </ul>
@@ -387,27 +387,680 @@ class ot extends x{constructor(){super(...arguments),this.renderOptions={host:th
           <button @click=${this.handleUserInput}>Send</button>
         </div>
       </div>
-    `}}class nt extends ot{createRenderRoot(){return this}static properties={widgetId:{type:String,reflect:!0},activeTab:{type:String,reflect:!0},displayedReviewsCount:{type:Number},loading:{type:Boolean},overallRating:{type:String},totalReviews:{type:Number},expandedReview:{type:Number},platforms:{type:Array},isAuthenticated:{type:Boolean},showLoginModal:{type:Boolean},showRegisterModal:{type:Boolean},showReviewModal:{type:Boolean},loginEmail:{type:String},loginPassword:{type:String},registerName:{type:String},registerEmail:{type:String},registerPassword:{type:String},reviewStars:{type:Number},reviewText:{type:String},errorMessage:{type:String},successMessage:{type:String},formLoading:{type:Boolean},userName:{type:String}};constructor(){super(),this.widgetId="",this.activeTab="all",this.apiEndpoint="https://api-inspired-4e322fa633ca.herokuapp.com",this.reviews={website:{reviews:[],url:""},gmb:{reviews:[],url:""},yelp:{reviews:[],url:""},homeadvisor:{reviews:[],url:""},angi:{reviews:[],url:""},thumbtack:{reviews:[],url:""},bbb:{reviews:[],url:""}},this.displayedReviewsCount=20,this.loading=!1,this.overallRating="0.0",this.totalReviews=0,this.expandedReview=null,this.platforms=[{name:"All",key:"all",color:"bg-indigo-600",reviews:[]},{name:"Website",key:"website",color:"bg-gray-600",reviews:[]},{name:"GMB",key:"gmb",color:"bg-blue-600",reviews:[]},{name:"Yelp",key:"yelp",color:"bg-red-600",reviews:[]},{name:"HomeAdvisor",key:"homeadvisor",color:"bg-green-600",reviews:[]},{name:"Angi",key:"angi",color:"bg-orange-600",reviews:[]},{name:"Thumbtack",key:"thumbtack",color:"bg-purple-600",reviews:[]},{name:"BBB",key:"bbb",color:"bg-yellow-600",reviews:[]}],this.isAuthenticated=!1,this.showLoginModal=!1,this.showRegisterModal=!1,this.showReviewModal=!1,this.loginEmail="",this.loginPassword="",this.registerName="",this.registerEmail="",this.registerPassword="",this.reviewStars=5,this.reviewText="",this.errorMessage="",this.successMessage="",this.formLoading=!1,this.userName="",this.authToken=localStorage.getItem("authToken")||null,this.authToken&&this.validateToken()}updated(t){t.has("widgetId")&&this.widgetId&&this.fetchReviews()}async validateToken(){try{const t=await fetch(`${this.apiEndpoint}/validate-token`,{headers:{Authorization:`Bearer ${this.authToken}`}});if(t.ok){const e=await t.json();this.isAuthenticated=!0,this.userName=e.user?.name}else this.handleLogout()}catch(t){this.handleLogout()}}async fetchReviews(){if(!this.apiEndpoint||!this.widgetId)return void console.error("Missing apiEndpoint or widgetId");const t=`${this.apiEndpoint}/get-reviews/${this.widgetId}`;this.loading=!0;try{const e=await fetch(t);if(!e.ok)throw new Error(`HTTP error! status: ${e.status}`);const s=await e.json();this.reviews={website:s.reviews?.website||{reviews:[],url:""},gmb:s.reviews?.gmb||{reviews:[],url:""},yelp:s.reviews?.yelp||{reviews:[],url:""},homeadvisor:s.reviews?.homeadvisor||{reviews:[],url:""},angi:s.reviews?.angi||{reviews:[],url:""},thumbtack:s.reviews?.thumbtack||{reviews:[],url:""},bbb:s.reviews?.bbb||{reviews:[],url:""}},this.preparePlatformsData(),this.calculateOverallRating(),this.setDefaultTab()}catch(t){console.error("Error fetching reviews:",t),this.reviews={website:{reviews:[],url:""},gmb:{reviews:[],url:""},yelp:{reviews:[],url:""},homeadvisor:{reviews:[],url:""},angi:{reviews:[],url:""},thumbtack:{reviews:[],url:""},bbb:{reviews:[],url:""}}}finally{this.loading=!1}}preparePlatformsData(){this.platforms=this.platforms.map((t=>{if("all"===t.key)return t;const e=this.reviews[t.key],s=e?.reviews||[];return{...t,reviews:s.map((e=>({author:e.author||"Anonymous",date:e.time?this.formatDate(e.time):"",location:e.location||"",source:t.name,rating:this.parseStarRating(e.stars),review:e.review||"",photos:e.photos||"",details:e.details||"",likes:e.likes||"",response:e.response||""}))),url:e?.url||""}}));const t=this.platforms.filter((t=>"all"!==t.key)).flatMap((t=>t.reviews)).sort(((t,e)=>new Date(e.date)-new Date(t.date))),e=this.platforms.find((t=>"all"===t.key));e&&(e.reviews=t),this.requestUpdate()}formatDate(t){if(!t)return"";try{return new Date(t).toISOString().split("T")[0]}catch(e){return console.error("Error formatting date:",e),t}}parseStarRating(t){return t?t.includes("stars")?parseInt(t.split(" ")[0]):parseInt(t):0}calculateOverallRating(){const t=this.platforms.find((t=>"all"===t.key)),e=t?.reviews||[],s=e.reduce(((t,e)=>t+e.rating),0);this.totalReviews=e.length,this.overallRating=this.totalReviews>0?(s/this.totalReviews).toFixed(1):"0.0"}setDefaultTab(){this.activeTab="all"}handleTabClick(t){this.activeTab=t,this.displayedReviewsCount="all"===t?20:12,this.expandedReview=null}truncateReview(t,e){if(!t)return"";const s=t.split(" ");return s.length<=e?t:s.slice(0,e).join(" ")+"..."}openLoginModal(){this.showLoginModal=!0,this.showRegisterModal=!1,this.showReviewModal=!1,this.errorMessage="",this.successMessage=""}openRegisterModal(){this.showRegisterModal=!0,this.showLoginModal=!1,this.showReviewModal=!1,this.errorMessage="",this.successMessage=""}openReviewModal(){this.isAuthenticated?(this.showReviewModal=!0,this.showLoginModal=!1,this.showRegisterModal=!1):(this.openRegisterModal(),this.successMessage="Create an account to share your review!"),this.errorMessage="",this.successMessage=""}closeAllModals(){this.showLoginModal=!1,this.showRegisterModal=!1,this.showReviewModal=!1,this.errorMessage="",this.successMessage=""}async handleLoginSubmit(t){if(t.preventDefault(),!this.formLoading){this.formLoading=!0,this.errorMessage="";try{const t=await fetch(`${this.apiEndpoint}/login`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({email:this.loginEmail,password:this.loginPassword})}),e=await t.json();t.ok?(this.authToken=e.token,this.userName=e.user.name,localStorage.setItem("authToken",e.token),this.isAuthenticated=!0,this.showLoginModal=!1,this.showReviewModal=!0,this.successMessage="Login successful!",this.loginEmail="",this.loginPassword=""):this.errorMessage=e.message||"Login failed"}catch(t){this.errorMessage="Network error. Please try again."}finally{this.formLoading=!1}}}async handleRegisterSubmit(t){if(t.preventDefault(),!this.formLoading){this.formLoading=!0,this.errorMessage="";try{const t=await fetch(`${this.apiEndpoint}/register`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name:this.registerName,email:this.registerEmail,password:this.registerPassword})}),e=await t.json();t.ok?(this.authToken=e.token,this.userName=e.user.name,localStorage.setItem("authToken",e.token),this.isAuthenticated=!0,this.showRegisterModal=!1,this.showReviewModal=!0,this.successMessage="Registration successful!",this.registerName="",this.registerEmail="",this.registerPassword=""):this.errorMessage=e.message||"Registration failed"}catch(t){this.errorMessage="Network error. Please try again."}finally{this.formLoading=!1}}}async handleReviewSubmit(t){if(t.preventDefault(),!this.formLoading){this.formLoading=!0,this.errorMessage="";try{const t=await fetch(`${this.apiEndpoint}/upsert-website-review/${this.widgetId}`,{method:"POST",headers:{"Content-Type":"application/json",Authorization:`Bearer ${this.authToken}`},body:JSON.stringify({stars:this.reviewStars.toString(),review:this.reviewText,author:this.userName||"User"})}),e=await t.json();t.ok?(this.successMessage="Thank you for your review!",this.reviewText="",this.reviewStars=5,await this.fetchReviews(),setTimeout((()=>{this.closeAllModals(),this.handleLogout()}),1e3)):this.errorMessage=e.error||"Failed to submit review"}catch(t){this.errorMessage="Network error. Please try again."}finally{this.formLoading=!1}}}handleLogout(){localStorage.removeItem("authToken"),this.authToken=null,this.isAuthenticated=!1}getWriteReviewButtonText(){if("all"===this.activeTab)return"Write a Review";const t=this.platforms.find((t=>t.key===this.activeTab));return t?`Write Review on ${t.name}`:"Write a Review"}getActivePlatformUrl(){if("all"===this.activeTab||"website"===this.activeTab)return null;const t=this.platforms.find((t=>t.key===this.activeTab));return t?.url||null}renderAuthModals(){return D`
+    `}}class nt extends ot{static styles=r`
+    :host {
+      display: block;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    /* Estilos base */
+    .container {
+      padding: 24px;
+      background-color: #f9fafb;
+      border-radius: 12px;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      gap: 16px;
+    }
+
+    @media (min-width: 640px) {
+      .header {
+        flex-direction: row;
+      }
+    }
+
+    .title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1f2937;
+      margin: 0;
+    }
+
+    .rating-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .rating-value {
+      font-size: 1.875rem;
+      font-weight: 700;
+      color: #1f2937;
+    }
+
+    .stars {
+      display: flex;
+      font-size: 1.5rem;
+      color: #f59e0b;
+    }
+
+    .reviews-count {
+      font-size: 0.875rem;
+      color: #6b7280;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 24px;
+      background-color: #2563eb;
+      color: white;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .button:hover {
+      background-color: #1d4ed8;
+    }
+
+    .button svg {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .tab {
+      padding: 8px 16px;
+      font-weight: 500;
+      font-size: 0.875rem;
+      border-radius: 9999px;
+      background-color: white;
+      color: #374151;
+      border: 1px solid #e5e7eb;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tab:hover {
+      background-color: #f3f4f6;
+    }
+
+    .tab.active {
+      color: white;
+      border: none;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Colores específicos para cada plataforma */
+    .tab.active.all {
+      background-color: #4f46e5;
+    }
+    .tab.active.website {
+      background-color: #4b5563;
+    }
+    .tab.active.gmb {
+      background-color: #2563eb;
+    }
+    .tab.active.yelp {
+      background-color: #ff2121;
+    }
+    .tab.active.homeadvisor {
+      background-color: #f69325;
+    }
+    .tab.active.angi {
+      background-color: #ff6658;
+    }
+    .tab.active.thumbtack {
+      background-color: #08a2d9;
+    }
+    .tab.active.bbb {
+      background-color: #086998;
+    }
+    /* Reviews grid */
+    .reviews-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: 1fr;
+      padding: 16px;
+    }
+
+    @media (min-width: 640px) {
+      .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .reviews-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* Reviews grid */
+    .reviews-grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: 1fr;
+      padding: 16px;
+    }
+
+    @media (min-width: 640px) {
+      .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .reviews-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* Review card - Estilos mejorados */
+    .review-card {
+      background-color: white;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      padding: 16px;
+      transition: transform 0.3s ease-in-out;
+      position: relative;
+    }
+
+    .review-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .review-content {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .review-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .avatar-container {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      background-color: #4b5563; /* Color por defecto */
+    }
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .review-info {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .author {
+      font-weight: 600;
+      font-size: 16px;
+      color: #111827;
+    }
+
+    .date,
+    .location {
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    /* Estilo del badge del tipo de fuente - Actualizado */
+    .source {
+      position: absolute !important;
+      top: 12px;
+      right: 12px;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      margin-top: 0;
+      font-weight: 500;
+      text-transform: capitalize;
+      width: 200px;
+      text-align: center;
+      width: auto;
+    }
+
+    .source.website {
+      background-color: #4b5563;
+      color: white;
+    }
+    .source.gmb {
+      background-color: #2563eb;
+      color: white;
+    }
+    .source.yelp {
+      background-color: #ff2121;
+      color: white;
+    }
+    .source.homeadvisor {
+      background-color: #f69325;
+      color: white;
+    }
+    .source.angi {
+      background-color: #ff6658;
+      color: white;
+    }
+    .source.thumbtack {
+      background-color: #08a2d9;
+      color: white;
+    }
+    .source.bbb {
+      background-color: #086998;
+      color: white;
+    }
+
+    /* Estilo para la calificación */
+    .review-rating {
+      font-size: 22px;
+      color: #f59e0b;
+      margin: 8px 0;
+      line-height: 1;
+    }
+
+    .review-text {
+      font-size: 15px;
+      color: #374151;
+      line-height: 1.5;
+    }
+
+    .read-more {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #1d4ed8;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .read-more:hover {
+      text-decoration: underline;
+    }
+
+    /* Diseño footer con elementos */
+    .review-footer {
+      margin-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+    }
+
+    .footer-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .footer-item svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .response {
+      margin-top: 12px;
+      padding: 16px;
+      background-color: #f9fafb;
+      border-radius: 12px;
+    }
+
+    .response-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #4b5563;
+    }
+
+    .response-text {
+      font-size: 14px;
+      color: #374151;
+      line-height: 1.5;
+    }
+
+    /* Empty state */
+    .empty-state {
+      text-align: center;
+      padding: 48px 24px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .empty-state svg {
+      width: 48px;
+      height: 48px;
+      color: #9ca3af;
+      margin: 0 auto;
+    }
+
+    .empty-title {
+      margin-top: 16px;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .empty-text {
+      margin-top: 4px;
+      color: #6b7280;
+    }
+
+    /* Load more button */
+    .load-more {
+      margin-top: 32px;
+      text-align: center;
+    }
+
+    .load-more-button {
+      padding: 12px 24px;
+      background-color: white;
+      border: 1px solid #d1d5db;
+      color: #374151;
+      font-weight: 500;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .load-more-button:hover {
+      background-color: #f9fafb;
+    }
+
+    /* Loading spinner */
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 256px;
+    }
+
+    .spinner {
+      width: 48px;
+      height: 48px;
+      border: 4px solid #e5e7eb;
+      border-left-color: #3b82f6;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Modals */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+      padding: 16px;
+      backdrop-filter: blur(4px);
+    }
+
+    .modal {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      max-width: 448px;
+      width: 350px;
+      padding: 24px;
+      transform: scale(1);
+      transition: transform 0.3s;
+    }
+
+    @media (min-width: 640px) {
+      .modal {
+        width: 90%;
+        margin: 0 auto;
+      }
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .modal-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1f2937;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    .close-button {
+      color: #6b7280;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .close-button:hover {
+      color: #4b5563;
+    }
+
+    .close-button svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #374151;
+      margin-bottom: 8px;
+    }
+
+    .form-input {
+      width: 95%;
+      padding: 12px 16px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all 0.2s;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+    }
+
+    .form-textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 1rem;
+      min-height: 120px;
+      resize: vertical;
+      transition: all 0.2s;
+    }
+
+    .form-textarea:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+    }
+
+    .rating-stars {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .star-button {
+      font-size: 2.25rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      line-height: 1;
+      transition: transform 0.2s;
+    }
+
+    .star-button:hover {
+      transform: scale(1.1);
+    }
+
+    .star-button:disabled {
+      cursor: not-allowed;
+    }
+
+    .star-filled {
+      color: #f59e0b;
+    }
+
+    .star-empty {
+      color: #d1d5db;
+    }
+
+    .submit-button {
+      width: 100%;
+      padding: 12px 16px;
+      background-color: #2563eb;
+      color: white;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .submit-button:hover {
+      background-color: #1d4ed8;
+    }
+
+    .submit-button:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .spinner-small {
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-left-color: white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-right: 12px;
+    }
+
+    .form-footer {
+      margin-top: 16px;
+      text-align: center;
+      font-size: 0.875rem;
+      color: #6b7280;
+    }
+
+    .form-link {
+      color: #2563eb;
+      font-weight: 500;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .form-link:hover {
+      color: #1e40af;
+    }
+
+    /* Alert messages */
+    .alert {
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      font-size: 0.875rem;
+    }
+
+    .alert-error {
+      background-color: #fef2f2;
+      color: #b91c1c;
+    }
+
+    .alert-success {
+      background-color: #f0fdf4;
+      color: #166534;
+    }
+  `;static properties={widgetId:{type:String,reflect:!0},activeTab:{type:String,reflect:!0},displayedReviewsCount:{type:Number},loading:{type:Boolean},overallRating:{type:String},totalReviews:{type:Number},expandedReview:{type:Number},platforms:{type:Array},isAuthenticated:{type:Boolean},showLoginModal:{type:Boolean},showRegisterModal:{type:Boolean},showReviewModal:{type:Boolean},loginEmail:{type:String},loginPassword:{type:String},registerName:{type:String},registerEmail:{type:String},registerPassword:{type:String},reviewStars:{type:Number},reviewText:{type:String},errorMessage:{type:String},successMessage:{type:String},formLoading:{type:Boolean},userName:{type:String}};constructor(){super(),this.widgetId="",this.activeTab="all",this.apiEndpoint="https://api-inspired-4e322fa633ca.herokuapp.com",this.reviews={website:{reviews:[],url:""},gmb:{reviews:[],url:""},yelp:{reviews:[],url:""},homeadvisor:{reviews:[],url:""},angi:{reviews:[],url:""},thumbtack:{reviews:[],url:""},bbb:{reviews:[],url:""}},this.displayedReviewsCount=20,this.loading=!1,this.overallRating="0.0",this.totalReviews=0,this.expandedReview=null,this.platforms=[{name:"All",key:"all",color:"#4f46e5",reviews:[]},{name:"Website",key:"website",color:"#4b5563",reviews:[]},{name:"GMB",key:"gmb",color:"#2563eb",reviews:[]},{name:"Yelp",key:"yelp",color:"#FF2121",reviews:[]},{name:"HomeAdvisor",key:"homeadvisor",color:"#F69325",reviews:[]},{name:"Angi",key:"angi",color:"#FF6658",reviews:[]},{name:"Thumbtack",key:"thumbtack",color:"#08A2D9",reviews:[]},{name:"BBB",key:"bbb",color:"#086998",reviews:[]}],this.isAuthenticated=!1,this.showLoginModal=!1,this.showRegisterModal=!1,this.showReviewModal=!1,this.loginEmail="",this.loginPassword="",this.registerName="",this.registerEmail="",this.registerPassword="",this.reviewStars=5,this.reviewText="",this.errorMessage="",this.successMessage="",this.formLoading=!1,this.userName="",this.authToken=localStorage.getItem("authToken")||null,this.authToken&&this.validateToken()}updated(t){t.has("widgetId")&&this.widgetId&&this.fetchReviews()}async validateToken(){try{const t=await fetch(`${this.apiEndpoint}/validate-token`,{headers:{Authorization:`Bearer ${this.authToken}`}});if(t.ok){const e=await t.json();this.isAuthenticated=!0,this.userName=e.user?.name}else this.handleLogout()}catch(t){this.handleLogout()}}async fetchReviews(){if(!this.apiEndpoint||!this.widgetId)return void console.error("Missing apiEndpoint or widgetId");const t=`${this.apiEndpoint}/get-reviews/${this.widgetId}`;this.loading=!0;try{const e=await fetch(t);if(!e.ok)throw new Error(`HTTP error! status: ${e.status}`);const i=await e.json();this.reviews={website:i.reviews?.website||{reviews:[],url:""},gmb:i.reviews?.gmb||{reviews:[],url:""},yelp:i.reviews?.yelp||{reviews:[],url:""},homeadvisor:i.reviews?.homeadvisor||{reviews:[],url:""},angi:i.reviews?.angi||{reviews:[],url:""},thumbtack:i.reviews?.thumbtack||{reviews:[],url:""},bbb:i.reviews?.bbb||{reviews:[],url:""}},this.preparePlatformsData(),this.calculateOverallRating(),this.setDefaultTab()}catch(t){console.error("Error fetching reviews:",t),this.reviews={website:{reviews:[],url:""},gmb:{reviews:[],url:""},yelp:{reviews:[],url:""},homeadvisor:{reviews:[],url:""},angi:{reviews:[],url:""},thumbtack:{reviews:[],url:""},bbb:{reviews:[],url:""}}}finally{this.loading=!1}}preparePlatformsData(){this.platforms=this.platforms.map((t=>{if("all"===t.key)return t;const e=this.reviews[t.key],i=e?.reviews||[];return{...t,reviews:i.map((e=>({author:e.author||"Anonymous",profilePic:e.profilePic||null,date:e.time?this.formatDate(e.time):"",location:e.location||"",source:t.name,rating:this.parseStarRating(e.stars),review:e.review||"",photos:e.photos||"",details:e.details||"",likes:e.likes||"",response:e.response||""}))),url:e?.url||""}}));const t=this.platforms.filter((t=>"all"!==t.key)).flatMap((t=>t.reviews)).sort(((t,e)=>new Date(e.date)-new Date(t.date))),e=this.platforms.find((t=>"all"===t.key));e&&(e.reviews=t),this.requestUpdate()}formatDate(t){if(!t)return"";try{return new Date(t).toISOString().split("T")[0]}catch(e){return console.error("Error formatting date:",e),t}}parseStarRating(t){return t?t.includes("stars")?parseInt(t.split(" ")[0]):parseInt(t):0}calculateOverallRating(){const t=this.platforms.find((t=>"all"===t.key)),e=t?.reviews||[],i=e.reduce(((t,e)=>t+e.rating),0);this.totalReviews=e.length,this.overallRating=this.totalReviews>0?(i/this.totalReviews).toFixed(1):"0.0"}setDefaultTab(){this.activeTab="all"}handleTabClick(t){this.activeTab=t,this.displayedReviewsCount="all"===t?20:12,this.expandedReview=null}truncateReview(t,e){if(!t)return"";const i=t.split(" ");return i.length<=e?t:i.slice(0,e).join(" ")+"..."}openLoginModal(){this.showLoginModal=!0,this.showRegisterModal=!1,this.showReviewModal=!1,this.errorMessage="",this.successMessage=""}openRegisterModal(){this.showRegisterModal=!0,this.showLoginModal=!1,this.showReviewModal=!1,this.errorMessage="",this.successMessage=""}openReviewModal(){this.isAuthenticated?(this.showReviewModal=!0,this.showLoginModal=!1,this.showRegisterModal=!1):(this.openRegisterModal(),this.successMessage="Create an account to share your review!"),this.errorMessage="",this.successMessage=""}closeAllModals(){this.showLoginModal=!1,this.showRegisterModal=!1,this.showReviewModal=!1,this.errorMessage="",this.successMessage=""}async handleLoginSubmit(t){if(t.preventDefault(),!this.formLoading){this.formLoading=!0,this.errorMessage="";try{const t=await fetch(`${this.apiEndpoint}/login`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({email:this.loginEmail,password:this.loginPassword})}),e=await t.json();t.ok?(this.authToken=e.token,this.userName=e.user.name,localStorage.setItem("authToken",e.token),this.isAuthenticated=!0,this.showLoginModal=!1,this.showReviewModal=!0,this.successMessage="Login successful!",this.loginEmail="",this.loginPassword=""):this.errorMessage=e.message||"Login failed"}catch(t){this.errorMessage="Network error. Please try again."}finally{this.formLoading=!1}}}async handleRegisterSubmit(t){if(t.preventDefault(),!this.formLoading){this.formLoading=!0,this.errorMessage="";try{const t=await fetch(`${this.apiEndpoint}/register`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name:this.registerName,email:this.registerEmail,password:this.registerPassword})}),e=await t.json();t.ok?(this.authToken=e.token,this.userName=e.user.name,localStorage.setItem("authToken",e.token),this.isAuthenticated=!0,this.showRegisterModal=!1,this.showReviewModal=!0,this.successMessage="Registration successful!",this.registerName="",this.registerEmail="",this.registerPassword=""):this.errorMessage=e.message||"Registration failed"}catch(t){this.errorMessage="Network error. Please try again."}finally{this.formLoading=!1}}}async handleReviewSubmit(t){if(t.preventDefault(),!this.formLoading){this.formLoading=!0,this.errorMessage="";try{const t=await fetch(`${this.apiEndpoint}/upsert-website-review/${this.widgetId}`,{method:"POST",headers:{"Content-Type":"application/json",Authorization:`Bearer ${this.authToken}`},body:JSON.stringify({stars:this.reviewStars.toString(),review:this.reviewText,author:this.userName||"User"})}),e=await t.json();t.ok?(this.successMessage="Thank you for your review!",this.reviewText="",this.reviewStars=5,await this.fetchReviews(),setTimeout((()=>{this.closeAllModals(),this.handleLogout()}),1e3)):this.errorMessage=e.error||"Failed to submit review"}catch(t){this.errorMessage="Network error. Please try again."}finally{this.formLoading=!1}}}handleLogout(){localStorage.removeItem("authToken"),this.authToken=null,this.isAuthenticated=!1}getWriteReviewButtonText(){if("all"===this.activeTab)return"Write a Review";const t=this.platforms.find((t=>t.key===this.activeTab));return t?`Write Review on ${t.name}`:"Write a Review"}getActivePlatformUrl(){if("all"===this.activeTab||"website"===this.activeTab)return null;const t=this.platforms.find((t=>t.key===this.activeTab));return t?.url||null}renderAuthModals(){return D`
       <!-- Login Modal -->
       ${this.showLoginModal?D`
-            <div
-              class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 backdrop-blur-sm"
-            >
-              <div
-                class="bg-white rounded-xl shadow-2xl max-w-md w-full p-6 transform transition-all duration-300 scale-100"
-              >
-                <div class="flex justify-between items-center mb-6">
-                  <h3 class="text-2xl font-bold text-gray-800 text-center mx-auto">
-                    Sign In to Write a Review
-                  </h3>
+            <div class="modal-overlay">
+              <div class="modal">
+                <div class="modal-header">
+                  <h3 class="modal-title">Sign In to Write a Review</h3>
                   <button
                     @click=${this.closeAllModals}
-                    class="text-gray-500 hover:text-gray-700 transition-colors"
+                    class="close-button"
                     ?disabled=${this.formLoading}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="h-6 w-6"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -423,79 +1076,52 @@ class ot extends x{constructor(){super(...arguments),this.renderOptions={host:th
                 </div>
 
                 <form @submit=${this.handleLoginSubmit}>
-                  <div class="mb-5">
-                    <label class="block text-gray-700 text-sm font-medium mb-2"
-                      >Email</label
-                    >
+                  ${this.errorMessage?D`<div class="alert alert-error">
+                        ${this.errorMessage}
+                      </div>`:""}
+                  ${this.successMessage?D`<div class="alert alert-success">
+                        ${this.successMessage}
+                      </div>`:""}
+
+                  <div class="form-group">
+                    <label class="form-label">Email</label>
                     <input
                       type="email"
                       .value=${this.loginEmail}
                       @input=${t=>this.loginEmail=t.target.value}
                       required
-                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                      class="form-input"
                       ?disabled=${this.formLoading}
                     />
                   </div>
-                  <div class="mb-6">
-                    <label class="block text-gray-700 text-sm font-medium mb-2"
-                      >Password</label
-                    >
+                  <div class="form-group">
+                    <label class="form-label">Password</label>
                     <input
                       type="password"
                       .value=${this.loginPassword}
                       @input=${t=>this.loginPassword=t.target.value}
                       required
-                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                      class="form-input"
                       ?disabled=${this.formLoading}
                     />
                   </div>
 
-                  ${this.errorMessage?D`<div
-                        class="mb-4 p-3 bg-red-50 text-red-600 text-sm rounded-lg"
-                      >
-                        ${this.errorMessage}
-                      </div>`:""}
-                  ${this.successMessage?D`<div
-                        class="mb-4 p-3 bg-green-50 text-green-600 text-sm rounded-lg"
-                      >
-                        ${this.successMessage}
-                      </div>`:""}
-
                   <button
                     type="submit"
                     ?disabled=${this.formLoading}
-                    class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors flex justify-center items-center"
+                    class="submit-button"
                   >
                     ${this.formLoading?D`
-                          <svg
-                            class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                          >
-                            <circle
-                              class="opacity-25"
-                              cx="12"
-                              cy="12"
-                              r="10"
-                              stroke="currentColor"
-                              stroke-width="4"
-                            ></circle>
-                            <path
-                              class="opacity-75"
-                              fill="currentColor"
-                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                            ></path>
-                          </svg>
+                          <span class="spinner-small"></span>
                           Processing...
                         `:"Sign In"}
                   </button>
 
-                  <div class="mt-4 text-center text-sm text-gray-600">
+                  <div class="form-footer">
                     Don't have an account?
                     <button
                       @click=${this.openRegisterModal}
-                      class="text-blue-600 hover:text-blue-800 font-medium transition-colors"
+                      class="form-link"
                       ?disabled=${this.formLoading}
                     >
                       Sign Up
@@ -508,24 +1134,17 @@ class ot extends x{constructor(){super(...arguments),this.renderOptions={host:th
 
       <!-- Register Modal -->
       ${this.showRegisterModal?D`
-            <div
-              class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 backdrop-blur-sm"
-            >
-              <div
-                class="bg-white rounded-xl shadow-2xl max-w-md w-full p-6 transform transition-all duration-300 scale-100"
-              >
-                <div class="flex justify-between items-center mb-6">
-                  <h3 class="text-2xl font-bold text-gray-800 text-center">
-                    Create Account to Write a Review
-                  </h3>
+            <div class="modal-overlay">
+              <div class="modal">
+                <div class="modal-header">
+                  <h3 class="modal-title">Create Account to Write a Review</h3>
                   <button
                     @click=${this.closeAllModals}
-                    class="text-gray-500 hover:text-gray-700 transition-colors"
+                    class="close-button"
                     ?disabled=${this.formLoading}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="h-6 w-6"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -541,92 +1160,63 @@ class ot extends x{constructor(){super(...arguments),this.renderOptions={host:th
                 </div>
 
                 <form @submit=${this.handleRegisterSubmit}>
-                  <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-medium mb-2"
-                      >Full Name</label
-                    >
+                  ${this.errorMessage?D`<div class="alert alert-error">
+                        ${this.errorMessage}
+                      </div>`:""}
+                  ${this.successMessage?D`<div class="alert alert-success">
+                        ${this.successMessage}
+                      </div>`:""}
+
+                  <div class="form-group">
+                    <label class="form-label">Full Name</label>
                     <input
                       type="text"
                       .value=${this.registerName}
                       @input=${t=>this.registerName=t.target.value}
                       required
-                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                      class="form-input"
                       ?disabled=${this.formLoading}
                     />
                   </div>
-                  <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-medium mb-2"
-                      >Email</label
-                    >
+                  <div class="form-group">
+                    <label class="form-label">Email</label>
                     <input
                       type="email"
                       .value=${this.registerEmail}
                       @input=${t=>this.registerEmail=t.target.value}
                       required
-                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                      class="form-input"
                       ?disabled=${this.formLoading}
                     />
                   </div>
-                  <div class="mb-6">
-                    <label class="block text-gray-700 text-sm font-medium mb-2"
-                      >Password</label
-                    >
+                  <div class="form-group">
+                    <label class="form-label">Password</label>
                     <input
                       type="password"
                       .value=${this.registerPassword}
                       @input=${t=>this.registerPassword=t.target.value}
                       required
-                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                      class="form-input"
                       ?disabled=${this.formLoading}
                     />
                   </div>
 
-                  ${this.errorMessage?D`<div
-                        class="mb-4 p-3 bg-red-50 text-red-600 text-sm rounded-lg"
-                      >
-                        ${this.errorMessage}
-                      </div>`:""}
-                  ${this.successMessage?D`<div
-                        class="mb-4 p-3 bg-green-50 text-green-600 text-sm rounded-lg"
-                      >
-                        ${this.successMessage}
-                      </div>`:""}
-
                   <button
                     type="submit"
                     ?disabled=${this.formLoading}
-                    class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors flex justify-center items-center"
+                    class="submit-button"
                   >
                     ${this.formLoading?D`
-                          <svg
-                            class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                          >
-                            <circle
-                              class="opacity-25"
-                              cx="12"
-                              cy="12"
-                              r="10"
-                              stroke="currentColor"
-                              stroke-width="4"
-                            ></circle>
-                            <path
-                              class="opacity-75"
-                              fill="currentColor"
-                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                            ></path>
-                          </svg>
+                          <span class="spinner-small"></span>
                           Creating Account...
                         `:"Sign Up"}
                   </button>
 
-                  <div class="mt-4 text-center text-sm text-gray-600">
+                  <div class="form-footer">
                     Already have an account?
                     <button
                       @click=${this.openLoginModal}
-                      class="text-blue-600 hover:text-blue-800 font-medium transition-colors"
+                      class="form-link"
                       ?disabled=${this.formLoading}
                     >
                       Sign In
@@ -639,24 +1229,17 @@ class ot extends x{constructor(){super(...arguments),this.renderOptions={host:th
 
       <!-- Review Modal -->
       ${this.showReviewModal?D`
-            <div
-              class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 backdrop-blur-sm"
-            >
-              <div
-                class="bg-white rounded-xl shadow-2xl max-w-md w-full p-6 transform transition-all duration-300 scale-100"
-              >
-                <div class="flex justify-between items-center mb-6">
-                  <h3 class="text-2xl font-bold text-gray-800">
-                    Write a Review
-                  </h3>
+            <div class="modal-overlay">
+              <div class="modal">
+                <div class="modal-header">
+                  <h3 class="modal-title">Write a Review</h3>
                   <button
                     @click=${this.closeAllModals}
-                    class="text-gray-500 hover:text-gray-700 transition-colors"
+                    class="close-button"
                     ?disabled=${this.formLoading}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="h-6 w-6"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -672,15 +1255,20 @@ class ot extends x{constructor(){super(...arguments),this.renderOptions={host:th
                 </div>
 
                 <form @submit=${this.handleReviewSubmit}>
-                  <div class="mb-5">
-                    <label class="block text-gray-700 text-sm font-medium mb-2"
-                      >Your Rating</label
-                    >
-                    <div class="flex justify-center space-x-2">
+                  ${this.errorMessage?D`<div class="alert alert-error">
+                        ${this.errorMessage}
+                      </div>`:""}
+                  ${this.successMessage?D`<div class="alert alert-success">
+                        ${this.successMessage}
+                      </div>`:""}
+
+                  <div class="form-group">
+                    <label class="form-label">Your Rating</label>
+                    <div class="rating-stars">
                       ${[1,2,3,4,5].map((t=>D`
                           <button
                             type="button"
-                            class="text-4xl ${this.reviewStars>=t?"text-yellow-400":"text-gray-300"} hover:scale-110 transform transition-transform"
+                            class="star-button ${this.reviewStars>=t?"star-filled":"star-empty"}"
                             @click=${()=>this.reviewStars=t}
                             ?disabled=${this.formLoading}
                           >
@@ -690,58 +1278,26 @@ class ot extends x{constructor(){super(...arguments),this.renderOptions={host:th
                     </div>
                   </div>
 
-                  <div class="mb-6">
-                    <label class="block text-gray-700 text-sm font-medium mb-2"
-                      >Your Review</label
-                    >
+                  <div class="form-group">
+                    <label class="form-label">Your Review</label>
                     <textarea
                       .value=${this.reviewText}
                       @input=${t=>this.reviewText=t.target.value}
                       rows="5"
                       required
-                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                      class="form-textarea"
                       ?disabled=${this.formLoading}
                       placeholder="Share your experience..."
                     ></textarea>
                   </div>
 
-                  ${this.errorMessage?D`<div
-                        class="mb-4 p-3 bg-red-50 text-red-600 text-sm rounded-lg"
-                      >
-                        ${this.errorMessage}
-                      </div>`:""}
-                  ${this.successMessage?D`<div
-                        class="mb-4 p-3 bg-green-50 text-green-600 text-sm rounded-lg"
-                      >
-                        ${this.successMessage}
-                      </div>`:""}
-
                   <button
                     type="submit"
                     ?disabled=${this.formLoading}
-                    class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors flex justify-center items-center"
+                    class="submit-button"
                   >
                     ${this.formLoading?D`
-                          <svg
-                            class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                          >
-                            <circle
-                              class="opacity-25"
-                              cx="12"
-                              cy="12"
-                              r="10"
-                              stroke="currentColor"
-                              stroke-width="4"
-                            ></circle>
-                            <path
-                              class="opacity-75"
-                              fill="currentColor"
-                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                            ></path>
-                          </svg>
+                          <span class="spinner-small"></span>
                           Submitting...
                         `:"Submit Review"}
                   </button>
@@ -749,50 +1305,37 @@ class ot extends x{constructor(){super(...arguments),this.renderOptions={host:th
               </div>
             </div>
           `:""}
-    `}render(){const t=parseFloat(this.overallRating),e=this.totalReviews,s=this.platforms.find((t=>t.key===this.activeTab)),i=this.getActivePlatformUrl();return D`
-      <div class="p-6 bg-gray-50 rounded-lg text-start w-full w-full mx-auto">
+    `}render(){const t=parseFloat(this.overallRating),e=this.totalReviews,i=this.platforms.find((t=>t.key===this.activeTab)),s=this.getActivePlatformUrl();return D`
+      <div class="container">
         ${this.loading?D`
-              <div class="flex justify-center items-center h-64">
-                <div
-                  class="border-4 border-gray-200 border-l-blue-500 rounded-full w-12 h-12 animate-spin"
-                ></div>
+              <div class="loading">
+                <div class="spinner"></div>
               </div>
             `:D`
               <!-- Header section with rating and write review button -->
-              <div
-                class="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4"
-              >
-                <div class="text-center sm:text-left">
-                  <h2 class="text-2xl font-bold text-gray-800">
-                    Customer Reviews
-                  </h2>
-                  <div
-                    class="flex items-center justify-center sm:justify-start gap-2 mt-2"
-                  >
-                    <div class="text-3xl font-bold text-gray-800">
-                      ${t.toFixed(1)}
+              <div class="header">
+                <div>
+                  <h2 class="title">Customer Reviews</h2>
+                  <div class="rating-container">
+                    <div class="rating-value">${t.toFixed(1)}</div>
+                    <div class="stars">
+                      ${"★".repeat(Math.round(t))}${"☆".repeat(5-Math.round(t))}
                     </div>
-                    <div class="flex flex-col">
-                      <div class="flex text-yellow-400">
-                        ${"★".repeat(Math.round(t))}${"☆".repeat(5-Math.round(t))}
-                      </div>
-                      <div class="text-sm text-gray-500">
-                        ${e} review${1!==e?"s":""}
-                      </div>
+                    <div class="reviews-count">
+                      ${e} review${1!==e?"s":""}
                     </div>
                   </div>
                 </div>
 
                 <div>
-                  ${i?D`
+                  ${s?D`
                         <a
-                          href="${i}"
+                          href="${s}"
                           target="_blank"
-                          class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-md"
+                          class="button"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            class="h-5 w-5 mr-2"
                             viewBox="0 0 20 20"
                             fill="currentColor"
                           >
@@ -805,13 +1348,9 @@ class ot extends x{constructor(){super(...arguments),this.renderOptions={host:th
                           ${this.getWriteReviewButtonText()}
                         </a>
                       `:D`
-                        <button
-                          @click=${this.openReviewModal}
-                          class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-md"
-                        >
+                        <button @click=${this.openReviewModal} class="button">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            class="h-5 w-5 mr-2"
                             viewBox="0 0 20 20"
                             fill="currentColor"
                           >
@@ -828,11 +1367,10 @@ class ot extends x{constructor(){super(...arguments),this.renderOptions={host:th
               </div>
 
               <!-- Platform tabs -->
-              <div class="flex flex-wrap gap-2 mb-6">
+              <div class="tabs">
                 ${this.platforms.filter((t=>"all"===t.key||t.reviews.length>0)).map((t=>D`
                       <button
-                        class="px-4 py-2 font-medium text-sm rounded-full transition-all
-                        ${this.activeTab===t.key?`${t.color} text-white shadow-md`:"bg-white text-gray-700 hover:bg-gray-100 border border-gray-200"}"
+                        class="tab ${this.activeTab===t.key?"active "+t.key:""}"
                         @click=${()=>this.handleTabClick(t.key)}
                       >
                         ${t.name}
@@ -842,13 +1380,10 @@ class ot extends x{constructor(){super(...arguments),this.renderOptions={host:th
               </div>
 
               <!-- Reviews content -->
-              ${0===s?.reviews.length?D`
-                    <div
-                      class="text-center py-12 text-gray-500 bg-white rounded-lg shadow-sm p-6"
-                    >
+              ${0===i?.reviews.length?D`
+                    <div class="empty-state">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        class="h-12 w-12 mx-auto text-gray-400"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -860,169 +1395,85 @@ class ot extends x{constructor(){super(...arguments),this.renderOptions={host:th
                           d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                         />
                       </svg>
-                      <h3 class="mt-4 text-lg font-medium">
-                        No reviews available
-                      </h3>
-                      <p class="mt-1">
+                      <h3 class="empty-title">No reviews available</h3>
+                      <p class="empty-text">
                         There are no reviews
-                        ${"all"===this.activeTab?"":`for ${s.name}`}
+                        ${"all"===this.activeTab?"":`for ${i.name}`}
                         yet.
                       </p>
                       ${"website"===this.activeTab||"all"===this.activeTab?D`
                             <button
                               @click=${this.openReviewModal}
-                              class="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                              class="button"
+                              style="margin-top: 16px;"
                             >
                               Be the first to review
                             </button>
                           `:""}
                     </div>
                   `:D`
-                    <div
-                      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-                    >
-                      ${s?.reviews.slice(0,this.displayedReviewsCount).map(((t,e)=>D`
-                            <div
-                              class="bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow overflow-hidden"
-                            >
-                              <div class="p-5">
-                                <div class="flex items-start gap-4">
-                                  <div class="flex-shrink-0">
-                                    <div
-                                      class="w-10 h-10 ${this.platforms.find((e=>e.name===t.source))?.color||"bg-gray-600"} text-white flex items-center justify-center rounded-full font-bold"
-                                    >
-                                      ${t.author.charAt(0).toUpperCase()}
-                                    </div>
+                    <div class="reviews-grid">
+                      ${i?.reviews.slice(0,this.displayedReviewsCount).map(((t,e)=>D`
+                            <div class="review-card">
+                              <!-- Badge source -->
+                              <span
+                                class="source ${t.source.toLowerCase()}"
+                                >${t.source}</span
+                              >
+
+                              <div class="review-content">
+                                <div class="review-header">
+                                  <div class="avatar-container">
+                                    ${t.profilePic?D`<img
+                                          src="${t.profilePic}"
+                                          alt="${t.author}"
+                                          class="avatar-img"
+                                        />`:D`
+                                          <div
+                                            class="avatar"
+                                            style="background-color: ${this.platforms.find((e=>e.name===t.source))?.color||"#4b5563"}"
+                                          >
+                                            ${t.author.charAt(0).toUpperCase()}
+                                          </div>
+                                        `}
                                   </div>
-                                  <div class="flex-1 min-w-0">
-                                    <h3
-                                      class="text-base font-semibold text-gray-900 truncate"
-                                    >
-                                      ${t.author}
-                                    </h3>
-                                    <p class="text-sm text-gray-500">
-                                      ${t.date}
-                                    </p>
-                                    ${t.location?D`<p
-                                          class="text-sm text-gray-500 truncate"
-                                        >
-                                          ${t.location}
-                                        </p>`:""}
-                                    <div class="mt-1 flex items-center">
-                                      <span
-                                        class="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-600"
-                                        >${t.source}</span
-                                      >
-                                    </div>
+                                  <div class="review-info">
+                                    <span class="author">${t.author}</span>
+                                    <span class="date">${t.date}</span>
+                                    ${t.location?D`<span class="location"
+                                          >${t.location}</span
+                                        >`:""}
                                   </div>
                                 </div>
 
                                 ${t.rating?D`
-                                      <div
-                                        class="mt-3 text-[22px] flex text-yellow-400"
-                                      >
+                                      <div class="review-rating">
                                         ${"★".repeat(t.rating)}${"☆".repeat(5-t.rating)}
                                       </div>
                                     `:""}
 
-                                <div class="mt-3">
-                                  <p class="text-gray-700 text-[15px]">
-                                    ${this.expandedReview===e?t.review:this.truncateReview(t.review,30)}
-                                  </p>
-                                  ${t.review&&t.review.split(" ").length>30?D`
-                                        <button
-                                          @click=${()=>this.expandedReview=this.expandedReview===e?null:e}
-                                          class="mt-2 text-blue-600 hover:text-blue-800 text-sm font-medium"
-                                        >
-                                          ${this.expandedReview===e?"Show less":"Read more"}
-                                        </button>
-                                      `:""}
+                                <div class="review-text">
+                                  ${this.expandedReview===e?t.review:this.truncateReview(t.review,30)}
                                 </div>
 
-                                <div
-                                  class="mt-4 pt-4 border-t border-gray-100 flex flex-wrap gap-2"
-                                >
-                                  ${t.photos?D`
-                                        <span
-                                          class="inline-flex items-center text-xs text-gray-500"
-                                        >
-                                          <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            class="h-4 w-4 mr-1"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                          >
-                                            <path
-                                              stroke-linecap="round"
-                                              stroke-linejoin="round"
-                                              stroke-width="2"
-                                              d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                                            />
-                                          </svg>
-                                          ${t.photos}
-                                        </span>
-                                      `:""}
-                                  ${t.likes?D`
-                                        <span
-                                          class="inline-flex items-center text-xs text-gray-500"
-                                        >
-                                          <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            class="h-4 w-4 mr-1"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                          >
-                                            <path
-                                              stroke-linecap="round"
-                                              stroke-linejoin="round"
-                                              stroke-width="2"
-                                              d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"
-                                            />
-                                          </svg>
-                                          ${t.likes}
-                                        </span>
-                                      `:""}
-                                </div>
-
-                                ${t.response?D`
-                                      <div
-                                        class="mt-4 p-3 bg-blue-50 rounded-lg border border-blue-100"
+                                ${t.review&&t.review.split(" ").length>30?D`
+                                      <button
+                                        @click=${()=>this.expandedReview=this.expandedReview===e?null:e}
+                                        class="read-more"
                                       >
-                                        <div class="flex items-center">
-                                          <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            class="h-5 w-5 text-blue-500 mr-2"
-                                            viewBox="0 0 20 20"
-                                            fill="currentColor"
-                                          >
-                                            <path
-                                              fill-rule="evenodd"
-                                              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                                              clip-rule="evenodd"
-                                            />
-                                          </svg>
-                                          <span
-                                            class="font-medium text-blue-800"
-                                            >Owner's Response</span
-                                          >
-                                        </div>
-                                        <p class="mt-1 text-sm text-blue-700">
-                                          ${t.response}
-                                        </p>
-                                      </div>
+                                        ${this.expandedReview===e?"Show less":"Read more"}
+                                      </button>
                                     `:""}
                               </div>
                             </div>
                           `))}
                     </div>
 
-                    ${s?.reviews.length>this.displayedReviewsCount?D`
-                          <div class="mt-8 text-center">
+                    ${i?.reviews.length>this.displayedReviewsCount?D`
+                          <div class="load-more">
                             <button
                               @click=${()=>this.displayedReviewsCount+="all"===this.activeTab?20:12}
-                              class="px-6 py-3 bg-white border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors shadow-sm"
+                              class="load-more-button"
                             >
                               Load More Reviews
                             </button>
@@ -1102,8 +1553,8 @@ class ot extends x{constructor(){super(...arguments),this.renderOptions={host:th
       color: red;
       text-align: center;
     }
-  `;constructor(){super(),this.widgetId="",this.themeData={},this.loading=!1,this.errorMessage=""}updated(t){t.has("widgetId")&&this.fetchThemeData()}async fetchThemeData(){if(!this.widgetId)return void(this.errorMessage="Widget ID is required");this.loading=!0,this.errorMessage="";const t=`http://localhost:3000/theme/config/${this.widgetId}`;try{const e=await fetch(t);if(!e.ok)throw new Error(`Error fetching data: ${e.status}`);const s=await e.json();this.themeData=s||{}}catch(t){console.error("Error fetching theme data:",t),this.errorMessage="Failed to load theme data. Please try again."}finally{this.loading=!1}}renderAnimations(){return(this.themeData.animations||[]).map(((t,e)=>D`
-        ${t.icons&&Array.isArray(t.icons)?t.icons.map(((e,s)=>D`
+  `;constructor(){super(),this.widgetId="",this.themeData={},this.loading=!1,this.errorMessage=""}updated(t){t.has("widgetId")&&this.fetchThemeData()}async fetchThemeData(){if(!this.widgetId)return void(this.errorMessage="Widget ID is required");this.loading=!0,this.errorMessage="";const t=`http://localhost:3000/theme/config/${this.widgetId}`;try{const e=await fetch(t);if(!e.ok)throw new Error(`Error fetching data: ${e.status}`);const i=await e.json();this.themeData=i||{}}catch(t){console.error("Error fetching theme data:",t),this.errorMessage="Failed to load theme data. Please try again."}finally{this.loading=!1}}renderAnimations(){return(this.themeData.animations||[]).map(((t,e)=>D`
+        ${t.icons&&Array.isArray(t.icons)?t.icons.map(((e,i)=>D`
               <i class="fas fa-${e.name} animation-icon"
                 style="
                   color: ${t.color}; 
@@ -1123,7 +1574,7 @@ class ot extends x{constructor(){super(...arguments),this.renderOptions={host:th
               </div>
             `}
       </div>
-    `}}class ht extends ot{static properties={clientId:{type:String,reflect:!0},stories:{type:Array},activeStoryIndex:{type:Number},activeImageIndex:{type:Number},loading:{type:Boolean},showModal:{type:Boolean},isPaused:{type:Boolean}};static styles=r`
+    `}}class dt extends ot{static properties={clientId:{type:String,reflect:!0},stories:{type:Array},activeStoryIndex:{type:Number},activeImageIndex:{type:Number},loading:{type:Boolean},showModal:{type:Boolean},isPaused:{type:Boolean}};static styles=r`
     :host {
       display: block;
       padding: 16px;
@@ -1369,5 +1820,5 @@ class ot extends x{constructor(){super(...arguments),this.renderOptions={host:th
               </button>
             </div>
           `:""}
-    `}}customElements.define("chat-bot",at),customElements.define("review-widget",nt),customElements.define("theme-animation-widget",lt),customElements.define("on-site-stories-widget",ht);
+    `}}customElements.define("chat-bot",at),customElements.define("review-widget",nt),customElements.define("theme-animation-widget",lt),customElements.define("on-site-stories-widget",dt);
 //# sourceMappingURL=index.js.map
