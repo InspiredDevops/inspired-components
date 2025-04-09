@@ -580,6 +580,7 @@ class ot extends y{constructor(){super(...arguments),this.renderOptions={host:th
       display: flex;
       flex-direction: column;
       padding: 16px;
+      padding-top: 32px;
       transition: transform 0.3s ease-in-out;
       position: relative;
     }
@@ -634,6 +635,7 @@ class ot extends y{constructor(){super(...arguments),this.renderOptions={host:th
       display: flex;
       flex-direction: column;
       gap: 4px;
+      text-align: left !important;
     }
 
     .author {
@@ -651,9 +653,9 @@ class ot extends y{constructor(){super(...arguments),this.renderOptions={host:th
     /* Estilo del badge del tipo de fuente - Actualizado */
     .source {
       position: absolute !important;
-      top: 12px;
-      right: 12px;
-      font-size: 12px;
+      top: 1px;
+      right: 1px;
+      font-size: 10px;
       padding: 4px 10px;
       border-radius: 9999px;
       margin-top: 0;
@@ -662,6 +664,7 @@ class ot extends y{constructor(){super(...arguments),this.renderOptions={host:th
       width: 200px;
       text-align: center;
       width: auto;
+      min-width: 60px;
     }
 
     .source.website {
@@ -705,6 +708,7 @@ class ot extends y{constructor(){super(...arguments),this.renderOptions={host:th
       font-size: 15px;
       color: #374151;
       line-height: 1.5;
+      text-align: left !important;
     }
 
     .read-more {
