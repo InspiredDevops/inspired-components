@@ -1291,13 +1291,6 @@ const A=globalThis,E=A.trustedTypes,P=E?E.createPolicy("lit-html",{createHTML:t=
       ${xt.pencil} Write a Review
     </button>`}_renderBody(){if(this._loading&&!this._platforms[0].reviews.length)return X`<div class="grid" aria-busy="true" aria-label="Loading reviews">
         ${[0,1,2].map((()=>X`<div class="skeleton"></div>`))}
-      </div>`;if(this._loadError&&!this._platforms[0].reviews.length)return X`<div class="center">
-        ${xt.chat}
-        <h3>We couldn't load the reviews</h3>
-        <p>Please check your connection and try again.</p>
-        <button type="button" class="btn btn-ghost" @click=${this._fetchReviews}>
-          Try again
-        </button>
       </div>`;const t=this._active;if(!t.reviews.length){const e="all"===t.key||"website"===t.key;return X`<div class="center">
         ${xt.chat}
         <h3>No reviews yet</h3>
